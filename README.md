@@ -1,6 +1,6 @@
-# Chef GPT
+# Chef Genie
 
-Say goodbye to mealtime indecision with our recipe generator app.
+Say goodbye to mealtime indecision with [Chef Genie](https://chef-genie.vercel.app).
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com)

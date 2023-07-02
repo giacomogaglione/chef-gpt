@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "ChefGPT",
+  name: "Chef Genie",
   description:
-    "Say goodbye to mealtime indecision with our recipe generator app.",
+    "Say goodbye to mealtime indecision with Chef Genie.",
   mainNav: [
     {
       title: "Home",
@@ -13,6 +13,6 @@ export const siteConfig = {
   links: {
     twitter: "https://twitter.com/faltyled",
     github: "https://github.com/giacomogaglione",
-    docs: "https://chef-gpt.vercel.app",
+    docs: "https://chef-genie.vercel.app",
   },
 }
