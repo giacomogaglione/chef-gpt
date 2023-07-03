@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -26,10 +25,12 @@ export function RecipeForm({ onSubmit }: RecipeFormProps) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       ingredients: "",
-      meal: "",
+      meal: "not relevant",
+      cuisine: "not relevant",
+      diet: "not relevant",
     },
   })
-
+  
   const formFields = [
     { name: "meal", label: "Meal", inputArray: meals },
     { name: "cuisine", label: "Cuisine", inputArray: cuisines },
@@ -44,16 +45,15 @@ export function RecipeForm({ onSubmit }: RecipeFormProps) {
           name="ingredients"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Ingredients</FormLabel>
+              <FormLabel className="font-semibold">
+                Ingredients
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="e.g. chicken, carrots, lemon, ..."
                   {...field}
                 />
               </FormControl>
-              <FormDescription>
-                List of the ingredients for your recipe.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -68,7 +68,7 @@ export function RecipeForm({ onSubmit }: RecipeFormProps) {
             inputArray={field.inputArray}
           />
         ))}
-        <Button type="submit">Generate</Button>
+        <Button type="submit" size="lg">Generate</Button>
       </form>
     </Form>
   )

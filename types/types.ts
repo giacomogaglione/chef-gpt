@@ -30,6 +30,7 @@ export interface Option {
 }
 
 export const meals = [
+  { label: "Not relevant", value: "not relevant" },
   { label: "Breakfast", value: "breakfast" },
   { label: "Lunch", value: "lunch" },
   { label: "Dinner", value: "dinner" },
@@ -47,6 +48,7 @@ export const meals = [
 ] as Option[]
 
 export const cuisines = [
+  { label: "Not relevant", value: "not relevant" },
   { label: "caribbean", value: "caribbean" },
   { label: "african", value: "african" },
   { label: "chinese", value: "chinese" },
@@ -74,13 +76,14 @@ export const cuisines = [
 ] as Option[]
 
 export const diets = [
-  { label: "normal", value: "normal" },
-  { label: "pescetarian", value: "pescetarian" },
-  { label: "lacto vegetarian", value: "lacto vegetarian" },
-  { label: "ovo vegetarian", value: "ovo vegetarian" },
-  { label: "vegan", value: "vegan" },
-  { label: "vegetarian", value: "vegetarian" },
-  { label: "paleo", value: "paleo" },
-  { label: "primal", value: "primal" },
-  { label: "whole30", value: "whole30" },
+  { label: "Not relevant", value: "not relevant" },
+  { label: "Normal", value: "normal" },
+  { label: "Pescetarian", value: "pescetarian" },
+  { label: "Lacto vegetarian", value: "lacto vegetarian" },
+  { label: "Ovo vegetarian", value: "ovo vegetarian" },
+  { label: "Vegan", value: "vegan" },
+  { label: "Vegetarian", value: "vegetarian" },
+  { label: "Paleo", value: "paleo" },
+  { label: "Primal", value: "primal" },
+  { label: "Whole30", value: "whole30" },
 ] as Option[]

@@ -70,6 +70,45 @@
   }
 }
 
+
+.gradient-bg {
+  background-color: #dee2fd;
+  background-image: radial-gradient(circle 800px at 700px 200px,
+      rgb(219, 225, 250) 0,
+      transparent 59%),
+    radial-gradient(circle 600px at calc(100% - 300px) 300px,
+      rgb(222, 253, 242) 0,
+      transparent 55%),
+    radial-gradient(circle 800px at right center,
+      rgb(236, 234, 255) 0,
+      transparent 55%),
+    radial-gradient(circle 800px at right bottom,
+      rgb(220, 224, 255) 0,
+      transparent 55%),
+    radial-gradient(circle 800px at calc(50% - 600px) calc(100% - 100px),
+      rgba(221, 231, 255, 0.747) 0,
+      transparent 55%);
+}
+
+.dark .gradient-bg {
+  background-color: #0f1734;
+  background-image: radial-gradient(circle 800px at 700px 200px,
+      rgb(26, 25, 68) 0,
+      transparent 59%),
+    radial-gradient(circle 600px at calc(100% - 300px) 300px,
+      hsl(218, 39%, 11%) 0,
+      transparent 55%),
+    radial-gradient(circle 800px at right center,
+      rgb(42, 43, 44) 0,
+      transparent 55%),
+    radial-gradient(circle 800px at right bottom,
+      rgb(14, 58, 12) 0,
+      transparent 55%),
+    radial-gradient(circle 800px at calc(50% - 600px) calc(100% - 100px),
+      rgb(26, 33, 65) 0,
+      transparent 55%);
+}
+
 @layer base {
   * {
     @apply border-border;

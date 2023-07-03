@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/command"
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -45,7 +44,7 @@ export function RecipeFormField({
       name={name}
       render={({ field }) => (
         <FormItem className="flex flex-col">
-          <FormLabel>{label}</FormLabel>
+          <FormLabel className="font-semibold">{label}</FormLabel>
           <Popover>
             <PopoverTrigger asChild>
               <FormControl>
@@ -95,9 +94,6 @@ export function RecipeFormField({
               </Command>
             </PopoverContent>
           </Popover>
-          <FormDescription>
-            Select {label.toLowerCase()} of your recipe.
-          </FormDescription>
           <FormMessage />
         </FormItem>
       )}
