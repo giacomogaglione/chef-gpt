@@ -45,10 +45,10 @@ export function GenerateRecipe() {
 
   return (
     <div className="flex">
-      <div className="flex w-1/3">
+      <div className="flex w-1/4">
         <RecipeForm onSubmit={onSubmit} />
       </div>
-      <div className="flex w-2/3">
+      <div className="flex w-3/4">
         <div className="my-auto space-y-10">
         {loading ? 
         <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : ""}

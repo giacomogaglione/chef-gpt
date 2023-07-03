@@ -44,7 +44,7 @@ export function RecipeForm({ onSubmit }: RecipeFormProps) {
           control={form.control}
           name="ingredients"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="w-[90%]">
               <FormLabel className="font-semibold">
                 Ingredients
               </FormLabel>
@@ -68,7 +68,7 @@ export function RecipeForm({ onSubmit }: RecipeFormProps) {
             inputArray={field.inputArray}
           />
         ))}
-        <Button type="submit" size="lg">Generate</Button>
+        <Button type="submit" size="lg" className="w-[90%]">Generate</Button>
       </form>
     </Form>
   )
