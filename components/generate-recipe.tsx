@@ -46,7 +46,7 @@ export function GenerateRecipe() {
   return (
     <div className="flex">
       <div className="flex w-1/4">
-        <RecipeForm onSubmit={onSubmit} />
+        <RecipeForm onSubmit={onSubmit} isLoading={loading}/>
       </div>
       <div className="flex w-3/4">
         <div className="my-auto space-y-10">

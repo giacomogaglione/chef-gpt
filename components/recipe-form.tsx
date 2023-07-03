@@ -1,5 +1,6 @@
 import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 
 import { cuisines, diets, formSchema, meals } from "@/types/types"
@@ -17,9 +18,10 @@ import { RecipeFormField } from "@/components/recipe-form-field"
 
 interface RecipeFormProps {
   onSubmit: (values: any, e: React.FormEvent) => void // Replace with the appropriate type
+  isLoading: boolean
 }
 
-export function RecipeForm({ onSubmit }: RecipeFormProps) {
+export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
   const form = useForm<any>({
     // Replace with the appropriate type
     resolver: zodResolver(formSchema),
@@ -30,7 +32,7 @@ export function RecipeForm({ onSubmit }: RecipeFormProps) {
       diet: "not relevant",
     },
   })
-  
+
   const formFields = [
     { name: "meal", label: "Meal", inputArray: meals },
     { name: "cuisine", label: "Cuisine", inputArray: cuisines },
@@ -45,9 +47,7 @@ export function RecipeForm({ onSubmit }: RecipeFormProps) {
           name="ingredients"
           render={({ field }) => (
             <FormItem className="w-[90%]">
-              <FormLabel className="font-semibold">
-                Ingredients
-              </FormLabel>
+              <FormLabel className="font-semibold">Ingredients</FormLabel>
               <FormControl>
                 <Input
                   placeholder="e.g. chicken, carrots, lemon, ..."
@@ -68,7 +68,16 @@ export function RecipeForm({ onSubmit }: RecipeFormProps) {
             inputArray={field.inputArray}
           />
         ))}
-        <Button type="submit" size="lg" className="w-[90%]">Generate</Button>
+        {isLoading ? (
+          <Button disabled>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Generating
+          </Button>
+        ) : (
+          <Button type="submit" size="lg" className="w-[90%]">
+            Generate
+          </Button>
+        )}
       </form>
     </Form>
   )

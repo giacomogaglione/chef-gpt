@@ -35,4 +35,6 @@ yarn-error.log*
 .contentlayer
 .env
 .editorconfig
-,vscode
+.vscode
+
+.env.development
