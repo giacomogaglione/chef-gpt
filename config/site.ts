@@ -2,6 +2,8 @@ export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   name: "Chef Genie",
+  url: "https://chef-genie.vercel.app",
+  ogImage: "/og.png",
   description: "Say goodbye to mealtime indecision with Chef Genie.",
   mainNav: [
     {
@@ -10,7 +12,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/faltyled",
+    twitter: "https://twitter.com/faultyled",
     github: "https://github.com/giacomogaglione",
     docs: "https://chef-genie.vercel.app",
   },

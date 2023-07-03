@@ -1,6 +1,9 @@
 # Chef Genie
 
 Say goodbye to mealtime indecision with [Chef Genie](https://chef-genie.vercel.app).
+Your OpenAI powered personal Chef.
+
+![hero](public/og.png)
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com)
