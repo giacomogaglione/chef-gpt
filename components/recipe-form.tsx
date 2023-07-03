@@ -46,7 +46,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           control={form.control}
           name="ingredients"
           render={({ field }) => (
-            <FormItem className="w-[90%]">
+            <FormItem className="w-full">
               <FormLabel className="font-semibold">Ingredients</FormLabel>
               <FormControl>
                 <Input
@@ -58,7 +58,6 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             </FormItem>
           )}
         />
-
         {formFields.map((field) => (
           <RecipeFormField
             key={field.name}
@@ -69,12 +68,16 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           />
         ))}
         {isLoading ? (
-          <Button disabled>
+          <Button disabled size="lg" className="w-full">
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Generating
           </Button>
         ) : (
-          <Button type="submit" size="lg" className="w-[90%]">
+          <Button
+            type="submit"
+            size="lg"
+            className="w-full bg-gradient-to-r from-indigo-500 to-cyan-400"
+          >
             Generate
           </Button>
         )}

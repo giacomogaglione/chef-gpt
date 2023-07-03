@@ -3,7 +3,6 @@
 import React, { useState } from "react"
 import { generatePrompt } from "@/utils/generate-prompt"
 import { generateRecipe } from "@/utils/generate-recipe"
-import { Loader2 } from "lucide-react"
 
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
 import { RecipeForm } from "@/components/recipe-form"
@@ -43,14 +42,14 @@ export function GenerateRecipe() {
   }
 
   return (
-    <div className="flex">
-      <div className="flex w-1/4">
+    <div className="w-full md:flex">
+      <div className="w-full md:flex md:w-1/4">
         <RecipeForm onSubmit={onSubmit} isLoading={loading} />
       </div>
-      <div className="w-3/4 rounded-xl border">
-        <h2 className="mx-auto w-full py-2 text-center text-2xl font-semibold text-slate-900 sm:text-4xl">
-          Your generated recipes
-        </h2>
+      <div className="my-2 rounded-xl border md:my-0 md:w-3/4">
+        <h3 className="mx-auto w-full text-center text-xl font-bold text-slate-600 dark:text-slate-400 sm:text-3xl md:pt-2">
+          👨‍🍳 your recipe...
+        </h3>
         <div className="my-auto w-full space-y-10">
           {generatedRecipe && (
             <GeneratedRecipeContent recipe={generatedRecipe} />

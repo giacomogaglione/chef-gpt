@@ -15,10 +15,10 @@ export const formSchema = z.object({
     required_error: "Please select a meal type",
   }),
   cuisine: z.string({
-    required_error: "Please select an email to display.",
+    required_error: "Please select a cuisine",
   }),
   diet: z.string({
-    required_error: "Please select an email to display.",
+    required_error: "Please select a diet",
   }),
 })
 

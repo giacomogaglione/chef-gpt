@@ -2,8 +2,7 @@ export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   name: "Chef Genie",
-  description:
-    "Say goodbye to mealtime indecision with Chef Genie.",
+  description: "Say goodbye to mealtime indecision with Chef Genie.",
   mainNav: [
     {
       title: "Home",

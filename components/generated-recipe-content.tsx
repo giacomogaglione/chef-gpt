@@ -17,9 +17,9 @@ export function GeneratedRecipeContent({ recipe }: { recipe: string }) {
 
   return (
     <div className="mx-auto my-4 w-full max-w-5xl p-4">
-      <div className="w-full cursor-copy rounded-xl border bg-white p-4 shadow-md transition hover:bg-gray-100">
+      <div className="w-full cursor-copy rounded-xl border p-4 shadow-md transition">
         <p
-          className="p-2 text-slate-900"
+          className="p-2 font-medium text-slate-600 dark:text-slate-400"
           dangerouslySetInnerHTML={{ __html: recipe }}
           ref={bioRef}
         />

@@ -52,7 +52,7 @@ export function RecipeFormField({
                   variant="outline"
                   role="combobox"
                   className={cn(
-                    "w-[90%] justify-between",
+                    "w-full justify-between",
                     !field.value && "text-muted-foreground"
                   )}
                 >
@@ -64,7 +64,7 @@ export function RecipeFormField({
                 </Button>
               </FormControl>
             </PopoverTrigger>
-            <PopoverContent className="w-[90%] p-0">
+            <PopoverContent className="w-full p-0">
               <Command>
                 <CommandInput
                   placeholder={`Search ${label.toLowerCase()}...`}
