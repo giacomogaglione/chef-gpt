@@ -16,17 +16,12 @@ export function GeneratedRecipeContent({ recipe }: { recipe: string }) {
   }, [recipe])
 
   return (
-    <div className="mx-auto my-4 max-w-5xl">
-      <h2
-        className="mx-auto text-3xl font-bold text-slate-900 sm:text-4xl"
-        ref={bioRef}
-      >
-        Your generated recipes
-      </h2>
-      <div className="cursor-copy rounded-xl border bg-white p-4 shadow-md transition hover:bg-gray-100">
+    <div className="mx-auto my-4 w-full max-w-5xl p-4">
+      <div className="w-full cursor-copy rounded-xl border bg-white p-4 shadow-md transition hover:bg-gray-100">
         <p
-          className="text-slate-900"
+          className="p-2 text-slate-900"
           dangerouslySetInnerHTML={{ __html: recipe }}
+          ref={bioRef}
         />
       </div>
     </div>
