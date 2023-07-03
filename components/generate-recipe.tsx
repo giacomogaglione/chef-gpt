@@ -47,9 +47,9 @@ export function GenerateRecipe() {
         <RecipeForm onSubmit={onSubmit} isLoading={loading} />
       </div>
       <div className="my-2 rounded-xl border md:my-0 md:w-3/4">
-        <h3 className="mx-auto w-full text-center text-xl font-bold text-slate-600 dark:text-slate-400 sm:text-3xl md:pt-2">
+        <h2 className="mx-auto w-full text-center text-xl font-bold text-slate-600 dark:text-slate-400 sm:text-3xl md:pt-2">
           👨‍🍳 your recipe...
-        </h3>
+        </h2>
         <div className="my-auto w-full space-y-10">
           {generatedRecipe && (
             <GeneratedRecipeContent recipe={generatedRecipe} />

@@ -51,6 +51,7 @@ export function RecipeFormField({
                 <Button
                   variant="outline"
                   role="combobox"
+                  aria-label={`${label} selector`}
                   className={cn(
                     "w-full justify-between",
                     !field.value && "text-muted-foreground"
