@@ -3,18 +3,22 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 
-import { cuisines, diets, formSchema, meals } from "@/types/types"
+import { formSchema } from "@/types/types"
 import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { RecipeFormField } from "@/components/recipe-form-field"
+import { Slider } from "@/components/ui/slider"
+import { RadioGroupFormField } from "@/components/radio-group-form-field"
+import { SelectFormField } from "@/components/select-form-field"
+import { SwitchFormField } from "@/components/switch-form-field"
 
 interface RecipeFormProps {
   onSubmit: (values: any, e: React.FormEvent) => void // Replace with the appropriate type
@@ -27,27 +31,26 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       ingredients: "",
-      meal: "not relevant",
-      cuisine: "not relevant",
-      diet: "not relevant",
+      time: [5],
+      people: "2",
+      difficulty: "easy",
+      vegetarian: false,
+      vegan: false,
+      gluten_free: false,
     },
   })
 
-  const formFields = [
-    { name: "meal", label: "Meal", inputArray: meals },
-    { name: "cuisine", label: "Cuisine", inputArray: cuisines },
-    { name: "diet", label: "Diet", inputArray: diets },
-  ]
-
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           control={form.control}
           name="ingredients"
           render={({ field }) => (
-            <FormItem className="w-full">
-              <FormLabel className="font-semibold">Ingredients</FormLabel>
+            <FormItem>
+              <FormLabel className="font-semibold">
+                1. What ingredients do you have?
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="e.g. chicken, carrots, lemon, ..."
@@ -58,15 +61,57 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             </FormItem>
           )}
         />
-        {formFields.map((field) => (
-          <RecipeFormField
-            key={field.name}
+        <FormField
+          control={form.control}
+          name="time"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="font-semibold">
+                2. How much time do you have?
+              </FormLabel>
+              <FormControl>
+                <Slider
+                  defaultValue={[5]}
+                  max={120}
+                  step={10}
+                  min={5}
+                  onValueChange={field.onChange}
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription className="flex">
+                <span className="mx-auto">⏲️ {field.value} minutes</span>
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormItem>
+          <FormLabel className="font-semibold">3. How many people?</FormLabel>
+          <RadioGroupFormField form={form} name="people" />
+        </FormItem>
+        <FormItem>
+          <FormLabel className="font-semibold">
+            4. Are you a good chef?
+          </FormLabel>
+          <SelectFormField form={form} name="difficulty" />
+        </FormItem>
+        <FormItem>
+          <FormLabel className="font-semibold">
+            5. Do you have diet preference?
+          </FormLabel>
+          <SwitchFormField
             form={form}
-            name={field.name}
-            label={field.label}
-            inputArray={field.inputArray}
+            name="vegetarian"
+            label="🥗 Vegetarian"
           />
-        ))}
+          <SwitchFormField form={form} name="vegan" label="🌿 Vegan" />
+          <SwitchFormField
+            form={form}
+            name="gluten_free"
+            label="🌾 Gluten-Free"
+          />
+        </FormItem>
         {isLoading ? (
           <Button disabled size="lg" className="w-full">
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />

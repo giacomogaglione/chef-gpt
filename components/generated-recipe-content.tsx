@@ -3,16 +3,16 @@
 import React, { useEffect, useRef } from "react"
 
 export function GeneratedRecipeContent({ recipe }: { recipe: string }) {
-  const bioRef = useRef<HTMLDivElement | null>(null)
+  const recipeRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const scrollToBios = () => {
-      if (bioRef.current !== null) {
-        bioRef.current.scrollIntoView({ behavior: "smooth" })
+    const scrollToRecipe = () => {
+      if (recipeRef.current !== null) {
+        recipeRef.current.scrollIntoView({ behavior: "smooth" })
       }
     }
 
-    scrollToBios()
+    scrollToRecipe()
   }, [recipe])
 
   return (
@@ -21,7 +21,7 @@ export function GeneratedRecipeContent({ recipe }: { recipe: string }) {
         <p
           className="p-2 font-medium text-slate-600 dark:text-slate-400"
           dangerouslySetInnerHTML={{ __html: recipe }}
-          ref={bioRef}
+          ref={recipeRef}
         />
       </div>
     </div>

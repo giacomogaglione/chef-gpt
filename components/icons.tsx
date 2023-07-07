@@ -1,9 +1,9 @@
 import {
+  ChefHat,
   LucideProps,
   Moon,
   SunMedium,
   Twitter,
-  ChefHat,
   type Icon as LucideIcon,
 } from "lucide-react"
 

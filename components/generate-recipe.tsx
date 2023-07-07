@@ -17,6 +17,7 @@ export function GenerateRecipe() {
     setGeneratedRecipe("")
     const prompt = generatePrompt(values)
     const response = await generateRecipe(prompt)
+    console.log(values)
 
     if (!response.ok) {
       throw new Error(response.statusText)
@@ -43,12 +44,12 @@ export function GenerateRecipe() {
 
   return (
     <div className="w-full md:flex">
-      <div className="w-full md:flex md:w-1/4">
+      <div className="w-full justify-around md:flex md:w-1/3">
         <RecipeForm onSubmit={onSubmit} isLoading={loading} />
       </div>
-      <div className="my-2 rounded-xl border md:my-0 md:w-3/4">
+      <div className="my-2 rounded-xl border md:my-0 md:w-2/3">
         <h2 className="mx-auto w-full text-center text-xl font-bold text-slate-600 dark:text-slate-400 sm:text-3xl md:pt-2">
-          👨‍🍳 your recipe...
+          👨‍🍳 Insert some ingredients to generate recipe...
         </h2>
         <div className="my-auto w-full space-y-10">
           {generatedRecipe && (

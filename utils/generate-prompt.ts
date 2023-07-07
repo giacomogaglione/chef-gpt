@@ -1,21 +1,22 @@
 import { FormData } from "@/types/types"
 
 export function generatePrompt(values: FormData): string {
-  return `You are an expert culinary chef and how to come up with recipes that are easy for others to read and make.
-  You will come up with 1 recipe based only these ${values.ingredients} you have available. 
+  return `You are an expert culinary chef. Create a meal recipe by strictly following these rules:
 
-  Requirements:
-- You will return 1 recipe
+  Rules:
 - The recipe must have a title
 - The recipe must have a list of ingredients
 - The recipe must have a list of instructions
-- The recipe must be unique
-- Recipe has to include all ingredients selected
-- The meal type is ${values.meal}
-- The cuisine is ${values.cuisine}
-- The diet is ${values.diet}
+- Ingredients available: ${values.ingredients}
+- Cooking time: less than ${values.time} minutes
+- The recipe must be for ${values.people} people
+- Difficulty of execution:${values.difficulty}
+- Diet preference:
+    - Vegetarian: ${values.vegetarian}
+    - Vegan: ${values.vegan}
+    - Gluten-free: ${values.gluten_free}
     
-Example with ingredients Mince, Mushroom, spinach:
+Example with ingredients: Mince, Mushroom, spinach:
 
 Mince and Mushroom Pasta
 
