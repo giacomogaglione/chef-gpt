@@ -25,7 +25,7 @@ export function RadioGroupFormField({ form, name }: RadioGroupFormFieldProps) {
             <RadioGroup
               onValueChange={field.onChange}
               defaultValue={field.value}
-              className="grid max-w-md grid-cols-3"
+              className="grid grid-cols-3"
             >
               <FormItem>
                 <FormLabel className="flex items-center justify-between rounded-md border-2 border-muted bg-popover px-4 py-2 hover:bg-accent hover:text-accent-foreground [&:has([data-state=checked])]:border-primary">

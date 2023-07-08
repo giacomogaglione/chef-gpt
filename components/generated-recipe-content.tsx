@@ -16,10 +16,10 @@ export function GeneratedRecipeContent({ recipe }: { recipe: string }) {
   }, [recipe])
 
   return (
-    <div className="mx-auto w-full max-w-5xl p-4">
-      <div className="w-full cursor-copy rounded-xl border p-4 shadow-md transition">
+    <div className="mx-auto p-4">
+      <div className="shadow-md transition">
         <p
-          className="p-2 font-medium text-slate-600 dark:text-slate-400"
+          className="p-2 text-sm font-medium"
           dangerouslySetInnerHTML={{ __html: recipe }}
           ref={recipeRef}
         />

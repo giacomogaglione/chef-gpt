@@ -44,7 +44,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full space-y-4 px-8"
+        className="w-full space-y-4 md:px-8"
       >
         <FormField
           control={form.control}
@@ -88,8 +88,8 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
                   {...field}
                 />
               </FormControl>
-              <FormDescription className="flex">
-                <span className="mx-auto">⏲️ {field.value} minutes</span>
+              <FormDescription className="flex flex-row-reverse">
+                🕛 {field.value} minutes
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -100,7 +100,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
               3
             </span>
-            How much How many people?
+            How many people?
           </FormLabel>
           <RadioGroupFormField form={form} name="people" />
         </FormItem>
@@ -133,7 +133,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           />
         </FormItem>
         {isLoading ? (
-          <Button disabled size="lg" className="w-full">
+          <Button disabled size="lg" className="w-full font-semibold">
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Generating
           </Button>
@@ -141,7 +141,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           <Button
             type="submit"
             size="lg"
-            className="w-full bg-gradient-to-r from-indigo-500 to-cyan-400"
+            className="w-full bg-gradient-to-r from-indigo-500 to-cyan-400 font-semibold"
           >
             Generate
           </Button>
