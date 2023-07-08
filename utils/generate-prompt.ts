@@ -4,8 +4,6 @@ export function generatePrompt(values: FormData): string {
   return `You are an expert culinary chef. Create a meal recipe by strictly following these rules:
 
   Rules:
-- The recipe must have a title
-- The recipe must have a list of ingredients
 - The recipe must have a list of instructions
 - Ingredients available: ${values.ingredients}
 - Cooking time: less than ${values.time} minutes
@@ -16,14 +14,13 @@ export function generatePrompt(values: FormData): string {
     - Vegan: ${values.vegan}
     - Gluten-free: ${values.gluten_free}
     
-Example with ingredients: Mince, Mushroom, spinach:
+Example with ingredients: Mince, Mushroom, Pasta:
 
 Mince and Mushroom Pasta
 
 Ingredients:
 - Mince
 - Mushroom
-- Spinach
 - Pasta
 
 Instructions:
