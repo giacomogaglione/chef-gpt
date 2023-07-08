@@ -109,7 +109,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
               4
             </span>
-            How muchAre you a good chef?
+            Are you a good chef?
           </FormLabel>
           <SelectFormField form={form} name="difficulty" />
         </FormItem>
@@ -118,7 +118,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
               5
             </span>
-            How muchDo you have diet preference?
+            Do you have diet preference?
           </FormLabel>
           <SwitchFormField
             form={form}
