@@ -16,9 +16,9 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Slider } from "@/components/ui/slider"
-import { RadioGroupFormField } from "@/components/radio-group-form-field"
-import { SelectFormField } from "@/components/select-form-field"
-import { SwitchFormField } from "@/components/switch-form-field"
+import { RadioGroupFormField } from "@/components/form/radio-group-form-field"
+import { SelectFormField } from "@/components/form/select-form-field"
+import { SwitchFormField } from "@/components/form/switch-form-field"
 
 interface RecipeFormProps {
   onSubmit: (values: any, e: React.FormEvent) => void // Replace with the appropriate type
@@ -42,14 +42,20 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full space-y-4 px-8"
+      >
         <FormField
           control={form.control}
           name="ingredients"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="font-semibold">
-                1. What ingredients do you have?
+                <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
+                  1
+                </span>
+                What ingredients do you have?
               </FormLabel>
               <FormControl>
                 <Input
@@ -65,9 +71,12 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           control={form.control}
           name="time"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="space-y-3">
               <FormLabel className="font-semibold">
-                2. How much time do you have?
+                <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
+                  2
+                </span>
+                How much time do you have?
               </FormLabel>
               <FormControl>
                 <Slider
@@ -87,18 +96,29 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           )}
         />
         <FormItem>
-          <FormLabel className="font-semibold">3. How many people?</FormLabel>
+          <FormLabel className="font-semibold">
+            <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
+              3
+            </span>
+            How much How many people?
+          </FormLabel>
           <RadioGroupFormField form={form} name="people" />
         </FormItem>
         <FormItem>
           <FormLabel className="font-semibold">
-            4. Are you a good chef?
+            <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
+              4
+            </span>
+            How muchAre you a good chef?
           </FormLabel>
           <SelectFormField form={form} name="difficulty" />
         </FormItem>
         <FormItem>
           <FormLabel className="font-semibold">
-            5. Do you have diet preference?
+            <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
+              5
+            </span>
+            How muchDo you have diet preference?
           </FormLabel>
           <SwitchFormField
             form={form}

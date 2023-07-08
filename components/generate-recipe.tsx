@@ -4,20 +4,23 @@ import React, { useState } from "react"
 import { generatePrompt } from "@/utils/generate-prompt"
 import { generateRecipe } from "@/utils/generate-recipe"
 
+import { RecipeForm } from "@/components/form/recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
-import { RecipeForm } from "@/components/recipe-form"
+import { SkeletonRecipeContent } from "@/components/skeleton-recipe-content"
 
 export function GenerateRecipe() {
   const [generatedRecipe, setGeneratedRecipe] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
+  const [skeleton, setSkeleton] = useState<boolean>(true)
 
   const onSubmit = async (values: any, e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setGeneratedRecipe("")
+    setSkeleton(false)
+
     const prompt = generatePrompt(values)
     const response = await generateRecipe(prompt)
-    console.log(values)
 
     if (!response.ok) {
       throw new Error(response.statusText)
@@ -48,14 +51,18 @@ export function GenerateRecipe() {
         <RecipeForm onSubmit={onSubmit} isLoading={loading} />
       </div>
       <div className="my-2 rounded-xl border md:my-0 md:w-2/3">
-        <h2 className="mx-auto w-full text-center text-xl font-bold text-slate-600 dark:text-slate-400 sm:text-3xl md:pt-2">
-          👨‍🍳 Insert some ingredients to generate recipe...
-        </h2>
-        <div className="my-auto w-full space-y-10">
-          {generatedRecipe && (
-            <GeneratedRecipeContent recipe={generatedRecipe} />
-          )}
-        </div>
+        {skeleton ? (
+          <SkeletonRecipeContent />
+        ) : (
+          <div className="my-auto w-full space-y-2">
+            <div className="mx-auto w-full pl-4 pt-4 text-lg font-semibold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              👨‍🍳 Your recipe
+            </div>
+            {generatedRecipe && (
+              <GeneratedRecipeContent recipe={generatedRecipe} />
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
