@@ -19,7 +19,7 @@ export function GeneratedRecipeContent({ recipe }: { recipe: string }) {
     <div className="mx-auto p-4">
       <div className="shadow-md transition">
         <p
-          className="p-2 text-sm font-medium"
+          className="p-2 font-medium md:text-sm"
           dangerouslySetInnerHTML={{ __html: recipe }}
           ref={recipeRef}
         />
