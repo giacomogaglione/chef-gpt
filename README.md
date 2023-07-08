@@ -3,7 +3,7 @@
 Say goodbye to mealtime indecision with [Chef Genie](https://chef-genie.vercel.app).
 Your OpenAI powered personal Chef.
 
-https://github.com/giacomogaglione/chef-gpt/assets/53169004/ab6c2337-6376-41c7-b036-3500116181a2
+![hero](public/og.png)
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com)
