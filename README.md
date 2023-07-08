@@ -1,9 +1,10 @@
 # Chef Genie
 
-Say goodbye to mealtime indecision with [Chef Genie](https://chef-genie.vercel.app).
-Your OpenAI powered personal Chef.
+Customizable recipe generator powered by OpenAI and ChatGPT.
 
 ![hero](public/og.png)
+
+## Features
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com)
@@ -36,5 +37,4 @@ Create `.env` file.
 
 ## License
 
-Licensed under the [license](https://github.com/giacomogaglione/wine-match/blob/main/LICENSE.txt).
-
+Licensed under the [MIT license](https://github.com/giacomogaglione/chef-gpt/blob/main/LICENSE.md).
