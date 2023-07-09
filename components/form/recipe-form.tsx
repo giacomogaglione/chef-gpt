@@ -80,6 +80,8 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
               </FormLabel>
               <FormControl>
                 <Slider
+                  id="cooking-time"
+                  aria-label="Choose cooking time"
                   defaultValue={[5]}
                   max={120}
                   step={10}

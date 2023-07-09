@@ -28,11 +28,8 @@ export function SelectFormField({ form, name }: SelectFormFieldProps) {
         <FormItem>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <FormControl>
-              <SelectTrigger>
-                <SelectValue
-                  aria-label="cooking-level"
-                  placeholder="Select your cooking level"
-                />
+              <SelectTrigger aria-label="cooking-level">
+                <SelectValue placeholder="Select your cooking level" />
               </SelectTrigger>
             </FormControl>
             <SelectContent>
