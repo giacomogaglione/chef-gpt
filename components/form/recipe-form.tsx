@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Slider } from "@/components/ui/slider"
+import { Slider, SliderThumb } from "@/components/ui/slider"
 import { RadioGroupFormField } from "@/components/form/radio-group-form-field"
 import { SelectFormField } from "@/components/form/select-form-field"
 import { SwitchFormField } from "@/components/form/switch-form-field"
@@ -88,7 +88,9 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
                   min={5}
                   onValueChange={field.onChange}
                   {...field}
-                />
+                >
+                  <SliderThumb aria-label="Cooking time"></SliderThumb>
+                </Slider>
               </FormControl>
               <FormDescription className="flex flex-row-reverse">
                 🕛 {field.value} minutes
