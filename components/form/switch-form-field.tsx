@@ -24,7 +24,12 @@ export function SwitchFormField({ form, name, label }: SwitchFormFieldProps) {
         <FormItem className="my-auto flex flex-row items-center justify-between space-y-0 rounded-lg border px-4 py-2">
           <FormLabel className="font-medium">{label}</FormLabel>
           <FormControl>
-            <Switch checked={field.value} onCheckedChange={field.onChange} />
+            <Switch
+              id={name}
+              aria-label={name}
+              checked={field.value}
+              onCheckedChange={field.onChange}
+            />
           </FormControl>
           <FormMessage />
         </FormItem>
