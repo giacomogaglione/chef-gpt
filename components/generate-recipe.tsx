@@ -7,13 +7,14 @@ import { generateRecipe } from "@/utils/generate-recipe"
 import { cn } from "@/lib/utils"
 import { RecipeForm } from "@/components/form/recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
+import type { FormData } from "@/types/types"
 
 export function GenerateRecipe() {
   const [generatedRecipe, setGeneratedRecipe] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
   const [recipeVisible, setRecipeVisible] = useState<boolean>(false)
 
-  const onSubmit = async (values: any, e: React.FormEvent) => {
+  const onSubmit = async (values: FormData, e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setGeneratedRecipe("")

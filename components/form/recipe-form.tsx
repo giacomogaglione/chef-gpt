@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 
-import { formSchema } from "@/types/types"
+import { formSchema, type FormData } from "@/types/types"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -11,23 +11,25 @@ import {
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Slider, SliderThumb } from "@/components/ui/slider"
-import { RadioGroupFormField } from "@/components/form/radio-group-form-field"
+import { RecipeFormLabel } from "@/components/form/label-form-field"
+import {
+  RadioGroupFormField,
+  options,
+} from "@/components/form/radio-group-form-field"
 import { SelectFormField } from "@/components/form/select-form-field"
 import { SwitchFormField } from "@/components/form/switch-form-field"
 
 interface RecipeFormProps {
-  onSubmit: (values: any, e: React.FormEvent) => void // Replace with the appropriate type
+  onSubmit: (values: FormData, e: React.FormEvent) => void
   isLoading: boolean
 }
 
 export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
-  const form = useForm<any>({
-    // Replace with the appropriate type
+  const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       ingredients: "",
@@ -36,7 +38,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
       difficulty: "easy",
       vegetarian: false,
       vegan: false,
-      gluten_free: false,
+      paleo: false,
     },
   })
 
@@ -51,12 +53,10 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           name="ingredients"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="font-semibold">
-                <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
-                  1
-                </span>
-                What ingredients do you have?
-              </FormLabel>
+              <RecipeFormLabel
+                index="1"
+                label="What ingredients do you have?"
+              />
               <FormControl>
                 <Input
                   placeholder="e.g. chicken, carrots, lemon, ..."
@@ -72,12 +72,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           name="time"
           render={({ field }) => (
             <FormItem className="space-y-3">
-              <FormLabel className="font-semibold">
-                <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
-                  2
-                </span>
-                How much time do you have?
-              </FormLabel>
+              <RecipeFormLabel index="2" label="How much time do you have?" />
               <FormControl>
                 <Slider
                   id="cooking-time"
@@ -95,46 +90,26 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
               <FormDescription className="flex flex-row-reverse">
                 🕛 {field.value} minutes
               </FormDescription>
-              <FormMessage />
             </FormItem>
           )}
         />
         <FormItem>
-          <FormLabel className="font-semibold">
-            <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
-              3
-            </span>
-            How many people?
-          </FormLabel>
-          <RadioGroupFormField form={form} name="people" />
+          <RecipeFormLabel index="3" label="How many people?" />
+          <RadioGroupFormField form={form} name="people" options={options} />
         </FormItem>
         <FormItem>
-          <FormLabel className="font-semibold">
-            <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
-              4
-            </span>
-            Are you a good chef?
-          </FormLabel>
+          <RecipeFormLabel index="4" label="Are you a good chef?" />
           <SelectFormField form={form} name="difficulty" />
         </FormItem>
         <FormItem>
-          <FormLabel className="font-semibold">
-            <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2">
-              5
-            </span>
-            Do you have diet preference?
-          </FormLabel>
+          <RecipeFormLabel index="5" label="Do you have diet preference??" />
           <SwitchFormField
             form={form}
             name="vegetarian"
             label="🥗 Vegetarian"
           />
           <SwitchFormField form={form} name="vegan" label="🌿 Vegan" />
-          <SwitchFormField
-            form={form}
-            name="gluten_free"
-            label="🌾 Gluten-Free"
-          />
+          <SwitchFormField form={form} name="paleo" label="🍖 Paleo" />
         </FormItem>
         {isLoading ? (
           <Button disabled size="lg" className="w-full font-semibold">

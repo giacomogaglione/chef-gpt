@@ -1,11 +1,8 @@
 "use client"
 
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form"
+import { FieldValues } from "react-hook-form"
+
+import { FormControl, FormField, FormItem } from "@/components/ui/form"
 import {
   Select,
   SelectContent,
@@ -15,7 +12,7 @@ import {
 } from "@/components/ui/select"
 
 interface SelectFormFieldProps {
-  form: any
+  form: FieldValues
   name: string
 }
 
@@ -38,7 +35,6 @@ export function SelectFormField({ form, name }: SelectFormFieldProps) {
               <SelectItem value="expert">Expert</SelectItem>
             </SelectContent>
           </Select>
-          <FormMessage />
         </FormItem>
       )}
     />

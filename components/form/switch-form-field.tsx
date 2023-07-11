@@ -1,16 +1,17 @@
 "use client"
 
+import { FieldValues } from "react-hook-form"
+
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form"
 import { Switch } from "@/components/ui/switch"
 
 interface SwitchFormFieldProps {
-  form: any
+  form: FieldValues
   name: string
   label: string
 }
@@ -25,13 +26,11 @@ export function SwitchFormField({ form, name, label }: SwitchFormFieldProps) {
           <FormLabel className="font-medium">{label}</FormLabel>
           <FormControl>
             <Switch
-              id={name}
               aria-label={name}
               checked={field.value}
               onCheckedChange={field.onChange}
             />
           </FormControl>
-          <FormMessage />
         </FormItem>
       )}
     />
