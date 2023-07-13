@@ -33,7 +33,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       ingredients: "",
-      time: [5],
+      cooking_time: [5],
       people: "2",
       difficulty: "easy",
       vegetarian: false,
@@ -69,7 +69,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
         />
         <FormField
           control={form.control}
-          name="time"
+          name="cooking_time"
           render={({ field }) => (
             <FormItem className="space-y-3">
               <RecipeFormLabel index="2" label="How much time do you have?" />

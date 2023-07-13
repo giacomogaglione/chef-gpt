@@ -10,7 +10,7 @@ export function generatePrompt(values: FormData): string {
     - Vegan: ${values.vegan} ;
     - Paleo: ${values.paleo} ;
 - Ingredients available: ${values.ingredients} . Do not use ingredients that are incompatible with diet euqual to true;
-- Cooking time: less than ${values.time} minutes;
+- Cooking time: less than ${values.cooking_time} minutes;
 - The recipe must be for ${values.people} people;
 - Difficulty of execution: ${values.difficulty} ;
     

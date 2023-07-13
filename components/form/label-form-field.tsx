@@ -1,4 +1,4 @@
-import { FormLabel } from "../ui/form"
+import { FormLabel } from "@/components/ui/form"
 
 interface RecipeFormLabelProps {
   index: string
@@ -7,13 +7,11 @@ interface RecipeFormLabelProps {
 
 export function RecipeFormLabel({ index, label }: RecipeFormLabelProps) {
   return (
-    <>
-      <FormLabel className="font-semibold">
-        <span className="mr-2 rounded-full bg-gradient-to-b from-indigo-500 to-cyan-400 px-2 text-white">
-          {index}
-        </span>
-        {label}
-      </FormLabel>
-    </>
+    <FormLabel className="font-semibold">
+      <span className="mr-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 px-2 text-white">
+        {index}
+      </span>
+      {label}
+    </FormLabel>
   )
 }

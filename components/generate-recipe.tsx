@@ -4,10 +4,10 @@ import React, { useState } from "react"
 import { generatePrompt } from "@/utils/generate-prompt"
 import { generateRecipe } from "@/utils/generate-recipe"
 
+import type { FormData } from "@/types/types"
 import { cn } from "@/lib/utils"
 import { RecipeForm } from "@/components/form/recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
-import type { FormData } from "@/types/types"
 
 export function GenerateRecipe() {
   const [generatedRecipe, setGeneratedRecipe] = useState<string>("")
