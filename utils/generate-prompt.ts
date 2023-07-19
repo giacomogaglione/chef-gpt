@@ -6,7 +6,7 @@ export function generatePrompt(values: FormData): string {
   Rules:
 - The recipe must have a list of instructions;
 - Diet:
-    - Vegetarian: ${values.vegetarian} ;
+    - Low-calori: ${values.low_calori} ;
     - Vegan: ${values.vegan} ;
     - Paleo: ${values.paleo} ;
 - Ingredients available: ${values.ingredients} . Do not use ingredients that are incompatible with diet euqual to true;

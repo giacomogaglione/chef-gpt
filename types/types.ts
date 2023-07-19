@@ -14,7 +14,7 @@ export const formSchema = z.object({
   cooking_time: z.array(z.number()).optional(),
   people: z.enum(["2", "4", "6"]).optional(),
   difficulty: z.string().optional(),
-  vegetarian: z.boolean().default(false).optional(),
+  low_calori: z.boolean().default(false).optional(),
   vegan: z.boolean().default(false).optional(),
   paleo: z.boolean().default(false).optional(),
 })

@@ -36,7 +36,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
       cooking_time: [5],
       people: "2",
       difficulty: "easy",
-      vegetarian: false,
+      low_calori: false,
       vegan: false,
       paleo: false,
     },
@@ -58,10 +58,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
                 label="What ingredients do you have?"
               />
               <FormControl>
-                <Input
-                  placeholder="e.g. chicken, carrots, lemon, ..."
-                  {...field}
-                />
+                <Input placeholder="Add some ingredients" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -102,11 +99,11 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           <SelectFormField form={form} name="difficulty" />
         </FormItem>
         <FormItem>
-          <RecipeFormLabel index="5" label="Do you have diet preference??" />
+          <RecipeFormLabel index="5" label="Do you have diet preference?" />
           <SwitchFormField
             form={form}
-            name="vegetarian"
-            label="🥗 Vegetarian"
+            name="low_calori"
+            label="⚖️ Low-calori"
           />
           <SwitchFormField form={form} name="vegan" label="🌿 Vegan" />
           <SwitchFormField form={form} name="paleo" label="🍖 Paleo" />

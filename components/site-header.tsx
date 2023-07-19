@@ -14,6 +14,7 @@ import { useTheme } from "next-themes"
 import { siteConfig } from "@/config/site"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
+import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteHeader() {
@@ -21,9 +22,10 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-1">
+      <div className="container flex h-14 items-center justify-between">
+        <MainNav items={siteConfig.mainNav} />
+        <div className="flex items-center justify-between space-x-2 md:justify-end md:space-x-4">
+          <nav className="flex items-center">
             <SignedIn>
               <UserButton
                 appearance={{
@@ -37,12 +39,12 @@ export function SiteHeader() {
             </SignedIn>
             <SignedOut>
               <SignInButton mode="modal">
-                <Button variant="outline" size="xs" className="mx-3">
+                <Button variant="outline" size="xs" className="mx-1 md:mx-3">
                   Log In
                 </Button>
               </SignInButton>
               <SignUpButton mode="modal">
-                <Button size="xs" className="mx-3">
+                <Button size="xs" className="mx-1 md:mx-3">
                   Sign Up
                 </Button>
               </SignUpButton>
@@ -56,10 +58,10 @@ export function SiteHeader() {
                 className={buttonVariants({
                   size: "sm",
                   variant: "ghost",
-                  className: "ml-3",
+                  className: "md:ml-3",
                 })}
               >
-                <Icons.gitHub className="h-5 w-5" />
+                <Icons.gitHub className="h-4 w-4 md:h-5 md:w-5" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
