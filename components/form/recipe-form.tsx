@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 
-import { formSchema, type FormData } from "@/types/types"
+import { defaultValues, formSchema, type FormData } from "@/types/types"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -31,22 +31,14 @@ interface RecipeFormProps {
 export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      ingredients: "",
-      cooking_time: [5],
-      people: "2",
-      difficulty: "easy",
-      low_calori: false,
-      vegan: false,
-      paleo: false,
-    },
+    defaultValues,
   })
 
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full space-y-4 md:px-8"
+        className="w-full space-y-4 md:px-4"
       >
         <FormField
           control={form.control}
@@ -54,8 +46,8 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           render={({ field }) => (
             <FormItem>
               <RecipeFormLabel
-                index="1"
-                label="What ingredients do you have?"
+                stepIndex="1"
+                labelIndex="What ingredients do you have?"
               />
               <FormControl>
                 <Input placeholder="Add some ingredients" {...field} />
@@ -69,7 +61,10 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           name="cooking_time"
           render={({ field }) => (
             <FormItem className="space-y-3">
-              <RecipeFormLabel index="2" label="How much time do you have?" />
+              <RecipeFormLabel
+                stepIndex="2"
+                labelIndex="How much time do you have?"
+              />
               <FormControl>
                 <Slider
                   id="cooking-time"
@@ -91,15 +86,18 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
           )}
         />
         <FormItem>
-          <RecipeFormLabel index="3" label="How many people?" />
+          <RecipeFormLabel stepIndex="3" labelIndex="How many people?" />
           <RadioGroupFormField form={form} name="people" options={options} />
         </FormItem>
         <FormItem>
-          <RecipeFormLabel index="4" label="Are you a good chef?" />
+          <RecipeFormLabel stepIndex="4" labelIndex="Are you a good chef?" />
           <SelectFormField form={form} name="difficulty" />
         </FormItem>
         <FormItem>
-          <RecipeFormLabel index="5" label="Do you have diet preference?" />
+          <RecipeFormLabel
+            stepIndex="5"
+            labelIndex="Do you have diet preference?"
+          />
           <SwitchFormField
             form={form}
             name="low_calori"

@@ -38,12 +38,12 @@ export function SiteHeader() {
               />
             </SignedIn>
             <SignedOut>
-              <SignInButton mode="modal">
+              <SignInButton>
                 <Button variant="outline" size="xs" className="mx-1 md:mx-3">
                   Log In
                 </Button>
               </SignInButton>
-              <SignUpButton mode="modal">
+              <SignUpButton>
                 <Button size="xs" className="mx-1 md:mx-3">
                   Sign Up
                 </Button>

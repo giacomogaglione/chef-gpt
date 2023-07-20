@@ -3,9 +3,11 @@
 import React, { useState } from "react"
 import { generatePrompt } from "@/utils/generate-prompt"
 import { generateRecipe } from "@/utils/generate-recipe"
+import { Heart } from "lucide-react"
 
-import type { FormData } from "@/types/types"
+import { defaultValues, type FormData } from "@/types/types"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 import { RecipeForm } from "@/components/form/recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
 
@@ -13,6 +15,7 @@ export function GenerateRecipe() {
   const [generatedRecipe, setGeneratedRecipe] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
   const [recipeVisible, setRecipeVisible] = useState<boolean>(false)
+  const [formValues, setFormValues] = useState<FormData>(defaultValues)
 
   const onSubmit = async (values: FormData, e: React.FormEvent) => {
     e.preventDefault()
@@ -21,6 +24,7 @@ export function GenerateRecipe() {
 
     const prompt = generatePrompt(values)
     const response = await generateRecipe(prompt)
+    setFormValues(values)
 
     if (!response.ok) {
       throw new Error(response.statusText)
@@ -43,6 +47,29 @@ export function GenerateRecipe() {
       setGeneratedRecipe((prev) => prev + formattedChunk)
       setRecipeVisible(true)
       setLoading(false)
+    }
+  }
+
+  const saveRecipe = async () => {
+    try {
+      const requestBody = {
+        ...formValues,
+        content: generatedRecipe,
+      }
+
+      const response = await fetch("/api/save", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to save the recipe.")
+      }
+    } catch (error) {
+      console.error(error)
     }
   }
 
@@ -69,7 +96,14 @@ export function GenerateRecipe() {
       >
         <div className="my-auto w-full space-y-2">
           {generatedRecipe && (
-            <GeneratedRecipeContent recipe={generatedRecipe} />
+            <>
+              <div className="flex justify-end p-4">
+                <Button variant="outline" size="icon" onClick={saveRecipe}>
+                  <Heart className="h-4 w-4" />
+                </Button>
+              </div>
+              <GeneratedRecipeContent recipe={generatedRecipe} />
+            </>
           )}
         </div>
       </div>

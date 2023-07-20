@@ -19,4 +19,14 @@ export const formSchema = z.object({
   paleo: z.boolean().default(false).optional(),
 })
 
+export const defaultValues: FormData = {
+  ingredients: "",
+  cooking_time: [5],
+  people: "2",
+  difficulty: "easy",
+  low_calori: false,
+  vegan: false,
+  paleo: false,
+}
+
 export type FormData = z.infer<typeof formSchema>
