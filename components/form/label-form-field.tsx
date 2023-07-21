@@ -11,7 +11,7 @@ export function RecipeFormLabel({
 }: RecipeFormLabelProps) {
   return (
     <FormLabel className="font-semibold">
-      <span className="mr-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 px-2 text-white">
+      <span className="mr-2 rounded-full bg-primary px-2 font-bold text-background">
         {stepIndex}
       </span>
       {labelIndex}

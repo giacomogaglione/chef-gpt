@@ -7,6 +7,7 @@ Customizable recipe generator powered by OpenAI and ChatGPT.
 ## Features
 
 - **Framework**: [Next.js](https://nextjs.org/)
+- **Database**: [Supabase](https://supabase.com/)
 - **Authentication**: [Clerk](https://clerk.com/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
   - **Primitives**: [Radix UI](https://radix-ui.com/)

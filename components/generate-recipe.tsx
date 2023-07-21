@@ -75,7 +75,7 @@ export function GenerateRecipe() {
 
   return (
     <div
-      className={cn("mx-auto w-full", {
+      className={cn("mx-auto w-full space-x-2", {
         "md:flex": loading || recipeVisible,
         "max-w-2xl": !loading && !recipeVisible,
       })}
@@ -90,19 +90,20 @@ export function GenerateRecipe() {
       </div>
       <div
         className={cn({
-          "my-2 rounded-xl border md:flex md:w-2/3": loading || recipeVisible,
+          "rounded-xl border md:flex md:w-2/3": loading || recipeVisible,
           "": !loading && !recipeVisible,
         })}
       >
-        <div className="my-auto w-full space-y-2">
+        <div className="my-4 md:flex md:flex-row-reverse">
           {generatedRecipe && (
             <>
-              <div className="flex justify-end p-4">
+              <div className="flex justify-end px-4">
                 <Button variant="outline" size="icon" onClick={saveRecipe}>
                   <Heart className="h-4 w-4" />
-                </Button>
-              </div>
+                </Button>              </div>
+
               <GeneratedRecipeContent recipe={generatedRecipe} />
+
             </>
           )}
         </div>
