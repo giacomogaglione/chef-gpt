@@ -69,9 +69,9 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <head />
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <ClerkProvider>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -88,7 +88,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
           </ThemeProvider>
         </body>
-      </html>
-    </ClerkProvider>
+      </ClerkProvider>
+    </html>
   )
 }

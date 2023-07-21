@@ -1,11 +1,11 @@
 "use client"
 
 import React, { useState } from "react"
-import { generatePrompt } from "@/utils/generate-prompt"
-import { generateRecipe } from "@/utils/generate-recipe"
 import { Heart } from "lucide-react"
 
 import { defaultValues, type FormData } from "@/types/types"
+import { generatePrompt } from "@/lib/generate-prompt"
+import { generateRecipe } from "@/lib/generate-recipe"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ToastAction } from "@/components/ui/toast"

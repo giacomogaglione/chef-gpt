@@ -11,9 +11,7 @@
     "preview": "next build && next start",
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "introspect": "drizzle-kit introspect:pg",
-    "generate": "drizzle-kit generate:pg"
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.21.15",
@@ -30,13 +28,10 @@
     "@vercel/analytics": "^1.0.1",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
-    "dotenv": "^16.3.1",
-    "drizzle-orm": "^0.27.2",
     "eventsource-parser": "^1.0.0",
     "lucide-react": "^0.105.0-alpha.4",
     "next": "^13.4.10",
     "next-themes": "^0.2.1",
-    "postgres": "^3.3.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
@@ -51,7 +46,6 @@
     "@types/react-dom": "^18.0.7",
     "@typescript-eslint/parser": "^5.58.0",
     "autoprefixer": "^10.4.13",
-    "drizzle-kit": "^0.19.5",
     "eslint": "^8.31.0",
     "eslint-config-next": "^13.4.10",
     "eslint-config-prettier": "^8.3.0",

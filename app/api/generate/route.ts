@@ -1,4 +1,4 @@
-import { OpenAIStream, OpenAIStreamPayload } from "@/utils/openai"
+import { OpenAIStream, OpenAIStreamPayload } from "@/lib/openai"
 
 if (!process.env.OPENAI_API_KEY) {
   throw new Error("Missing env var from OpenAI")
@@ -6,8 +6,8 @@ if (!process.env.OPENAI_API_KEY) {
 
 export const runtime = "edge"
 
-const handler = async (req: Request): Promise<Response> => {
-  const { prompt } = (await req.json()) as {
+export async function POST(request: Request) {
+  const { prompt } = (await request.json()) as {
     prompt?: string
   }
 
@@ -30,5 +30,3 @@ const handler = async (req: Request): Promise<Response> => {
   const stream = await OpenAIStream(payload)
   return new Response(stream)
 }
-
-export default handler
