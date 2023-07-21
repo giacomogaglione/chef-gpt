@@ -8,6 +8,8 @@ import { Heart } from "lucide-react"
 import { defaultValues, type FormData } from "@/types/types"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { ToastAction } from "@/components/ui/toast"
+import { toast } from "@/components/ui/use-toast"
 import { RecipeForm } from "@/components/form/recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
 
@@ -65,7 +67,18 @@ export function GenerateRecipe() {
         body: JSON.stringify(requestBody),
       })
 
+      toast({
+        title: "Cool!",
+        description: "Recipe successfully saved",
+      })
+
       if (!response.ok) {
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Account needed.",
+          description: "Sign-in to save your recipe",
+          action: <ToastAction altText="Sign-in">Sign-In</ToastAction>,
+        })
         throw new Error("Failed to save the recipe.")
       }
     } catch (error) {
@@ -98,12 +111,11 @@ export function GenerateRecipe() {
           {generatedRecipe && (
             <>
               <div className="flex justify-end px-4">
-                <Button variant="outline" size="icon" onClick={saveRecipe}>
-                  <Heart className="h-4 w-4" />
-                </Button>              </div>
-
+                <Button variant="outline" onClick={saveRecipe}>
+                  <Heart className="mr-2 h-4 w-4" /> Save
+                </Button>
+              </div>
               <GeneratedRecipeContent recipe={generatedRecipe} />
-
             </>
           )}
         </div>
