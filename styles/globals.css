@@ -76,7 +76,7 @@
     @apply bg-background text-foreground;
   }
 }
-/*
+
 .cl-card {
   @apply bg-popover text-foreground;
 }
@@ -115,4 +115,3 @@
 .cl-profileSectionTitleText, .cl-userPreview, .cl-accordionTriggerButton {
   @apply text-foreground;
 }
-*/

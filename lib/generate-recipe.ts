@@ -1,5 +1,5 @@
 export async function generateRecipe(prompt: string): Promise<Response> {
-  const response = await fetch("/api/generate", {
+  const response = await fetch("/api/generate-recipe", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -59,7 +59,7 @@ export function GenerateRecipe() {
         content: generatedRecipe,
       }
 
-      const response = await fetch("/api/save", {
+      const response = await fetch("/api/save-recipe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
