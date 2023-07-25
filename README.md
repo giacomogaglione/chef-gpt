@@ -2,7 +2,10 @@
 
 Customizable recipe generator powered by OpenAI and ChatGPT.
 
-![hero](public/og.png)
+![hero](public/og_git.png)
+
+> **Note**
+This project is still in development and is not ready for production use.
 
 ## Features
 
