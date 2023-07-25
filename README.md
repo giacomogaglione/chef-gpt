@@ -23,6 +23,8 @@ This project is still in development and is not ready for production use.
 
 ## Running Locally
 
+1. Clone the repository and install the dependencies
+
 ```bash
 git clone https://github.com/giacomogaglione/chef-genie.git
 cd chef-genie
@@ -30,7 +32,17 @@ pnpm install
 pnpm dev
 ```
 
-Create `.env` file.
+2. Copy the `.env.example` to `.env` and update the variables.
+
+```bash
+cp .env.example .env
+```
+
+3. Start the development server
+
+```bash
+pnpm run dev
+```
 
 ## License
 
