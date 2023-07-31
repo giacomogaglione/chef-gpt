@@ -8,7 +8,7 @@ import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"
 import { Footer } from "@/components/footer"
-import { SiteHeader } from "@/components/site-headex"
+import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
