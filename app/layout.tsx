@@ -71,9 +71,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const user = await currentUser()
 
   return (
-    <ClerkProvider>
+
       <html lang="en" suppressHydrationWarning>
         <head />
+    <ClerkProvider>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -90,7 +91,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             </div>
           </ThemeProvider>
         </body>
+ </ClerkProvider>
       </html>
-    </ClerkProvider>
+   
   )
 }
