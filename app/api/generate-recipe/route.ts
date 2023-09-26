@@ -3,9 +3,9 @@ import { OpenAIStream, OpenAIStreamPayload } from "@/lib/openai"
 if (!process.env.OPENAI_API_KEY) {
   throw new Error("Missing env var from OpenAI")
 }
-
+/*
 export const runtime = "edge"
-
+*/
 export async function POST(request: Request) {
   const { prompt } = (await request.json()) as {
     prompt?: string
