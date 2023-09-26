@@ -1,4 +1,4 @@
-
+import { currentUser } from "@clerk/nextjs"
 import { Toaster } from "@/components/ui/toaster"
 import { Footer } from "@/components/footer"
 import { SiteHeader } from "@/components/site-header"
