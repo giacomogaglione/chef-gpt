@@ -6,9 +6,9 @@ import { Analytics } from "@vercel/analytics/react"
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { Toaster } from "@/components/ui/toaster"
-import { Footer } from "@/components/footer"
-import { SiteHeader } from "@/components/site-header"
+
+
+
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -71,10 +71,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const user = await currentUser()
 
   return (
-
+    <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head />
-    <ClerkProvider>
+
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -84,15 +84,15 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           <Analytics />
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
-              <SiteHeader user={user} />
+
               <div className="mx-auto flex-1">{children}</div>
-              <Toaster />
-              <Footer />
+
+
             </div>
           </ThemeProvider>
         </body>
- </ClerkProvider>
+
       </html>
-   
+ </ClerkProvider>   
   )
 }
