@@ -1,6 +1,6 @@
 import { GenerateRecipe } from "@/components/generate-recipe"
-
-export default function IndexPage() {
+export const dynamic = "force-static";
+export default function Index page() {
   return (
     <div className="container grid items-center gap-4 py-4">
       <div className="mx-auto mb-2 flex max-w-5xl flex-col items-start gap-2 text-center md:mb-8">
