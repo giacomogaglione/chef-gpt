@@ -3,10 +3,10 @@ import { auth } from "@clerk/nextjs"
 
 import { formSchema } from "@/types/types"
 import supabaseClient from "@/lib/supabase-client"
-
+/*
 export const runtime = "edge"
 export const revalidate = 0
-
+*/
 export async function POST(request: Request) {
   const { getToken, userId } = auth()
   const supabaseAccessToken = await getToken({ template: "chef-genie" })
