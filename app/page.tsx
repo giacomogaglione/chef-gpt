@@ -1,5 +1,5 @@
 import { GenerateRecipe } from "@/components/generate-recipe"
-export const dynamic = "force-static"
+
 export default function IndexPage() {
   return (
     <div className="container grid items-center gap-4 py-4">
