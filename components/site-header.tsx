@@ -21,7 +21,7 @@ import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 interface SiteHeaderProps {
-  user: User | null
+  user?: User | null
 }
 
 export function SiteHeader({ user }: SiteHeaderProps) {
