@@ -4,6 +4,9 @@ export default authMiddleware({
   debug: true,
   publicRoutes: [
     "/",
+    "/sign-in(.*)",
+    "/sign-up(.*)",
+    "/sign-out(.*)",
     "/dashboard(.*)",
     "/dashboard",
     "/sign-out",
