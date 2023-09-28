@@ -1,14 +1,14 @@
 import {
+  Activity,
   ChefHat,
+  LogOut,
   LucideProps,
   Moon,
+  Settings,
   SunMedium,
+  Terminal,
   Twitter,
   User,
-  Terminal,
-  Settings,
-  LogOut,
-  Activity,
   type Icon as LucideIcon,
 } from "lucide-react"
 

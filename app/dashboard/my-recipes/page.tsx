@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs"
 import type { Database } from "@/types/supabase"
 import supabaseClient from "@/lib/supabase-client"
 import { RecipeCard } from "@/components/recipe-card"
+
 /*
 export const dynamic = "force-dynamic"
 */

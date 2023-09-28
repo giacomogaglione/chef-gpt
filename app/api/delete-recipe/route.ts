@@ -3,6 +3,7 @@ import { NextResponse } from "next/server"
 import { auth } from "@clerk/nextjs"
 
 import supabaseClient from "@/lib/supabase-client"
+
 /*
 export const runtime = "edge"
 export const dynamic = "force-dynamic"
