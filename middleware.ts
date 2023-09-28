@@ -4,16 +4,10 @@ export default authMiddleware({
   debug: true,
   publicRoutes: [
     "/",
-    "/api/generate-recipe",
-    "/api/save-recipe",
-    "/api/delete-recipe",
-    "/dashboard/(.*)",
-    "sign-in",
-    "sign-up",
-    "/api(.*)",
+    "/dashboard(.*)",
     "/dashboard",
     "/sign-out",
-    "/(.*)",
+    "/api(.*)",
   ],
 })
 

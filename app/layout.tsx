@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -71,19 +72,19 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head />
-
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
             fontSans.variable
           )}
         >
-          <Analytics />
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
               <div className="mx-auto flex-1">{children}</div>
             </div>
+            <Analytics />
           </ThemeProvider>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
