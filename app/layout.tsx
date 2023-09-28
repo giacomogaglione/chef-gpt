@@ -68,9 +68,10 @@ interface RootLayoutProps {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   const user = await currentUser()
+  const clerkPubKey=process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={clerkPubKey}>
       <html lang="en" suppressHydrationWarning>
         <head />
         <body
