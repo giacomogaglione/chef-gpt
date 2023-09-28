@@ -10,6 +10,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://chef-genie.vercel.app'),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,

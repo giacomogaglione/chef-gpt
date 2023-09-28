@@ -27,7 +27,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-toast": "^1.1.4",
-    "@supabase/supabase-js": "^2.26.0",
+    "@supabase/supabase-js": "^2.36.0",
     "@vercel/analytics": "^1.0.1",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
@@ -38,6 +38,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
+    "supabase": "^1.99.5",
     "tailwind-merge": "^1.13.2",
     "tailwindcss-animate": "^1.0.6",
     "zod": "^3.21.4"
