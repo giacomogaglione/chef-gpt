@@ -7,7 +7,7 @@ export const siteConfig = {
   description: "Say goodbye to mealtime indecision.",
   mainNav: [
     {
-      title: "",
+      title: "Chef Genie Homepage",
       href: "/",
     },
   ],
