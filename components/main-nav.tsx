@@ -15,7 +15,7 @@ export function MainNav({ items }: MainNavProps) {
     <div className="flex gap-6 md:gap-10">
       <Link
         href="/"
-        aria-label="Chef Genie Home"
+        aria-label="Chef Genie Homepage"
         className="items-center space-x-2 md:flex"
       >
         <Icons.logo className="h-5 w-5 md:h-6 md:w-6" />
