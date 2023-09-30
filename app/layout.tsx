@@ -70,7 +70,6 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
-
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>

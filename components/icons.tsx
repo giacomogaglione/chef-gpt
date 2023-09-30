@@ -1,5 +1,6 @@
 import {
   Activity,
+  ArrowRight,
   ChefHat,
   LogOut,
   LucideProps,
@@ -24,6 +25,7 @@ export const Icons = {
   settings: Settings,
   logout: LogOut,
   spinner: Activity,
+  arrowright: ArrowRight,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

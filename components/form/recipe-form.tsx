@@ -1,6 +1,6 @@
 import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Loader2 } from "lucide-react"
+import { ArrowRight, Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 
 import { defaultValues, formSchema, type FormData } from "@/types/types"
@@ -23,12 +23,12 @@ import {
 import { SelectFormField } from "@/components/form/select-form-field"
 import { SwitchFormField } from "@/components/form/switch-form-field"
 
-interface RecipeFormProps {
+interface RecipeFormProps2 {
   onSubmit: (values: FormData, e: React.FormEvent) => void
   isLoading: boolean
 }
 
-export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
+export function RecipeForm2({ onSubmit, isLoading }: RecipeFormProps2) {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues,
@@ -109,15 +109,13 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
         {isLoading ? (
           <Button disabled size="lg" className="w-full font-semibold">
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Generating
+            Generating recipe
           </Button>
         ) : (
-          <Button
-            type="submit"
-            size="lg"
-            className="w-full bg-gradient-to-r from-indigo-500 to-cyan-400 font-semibold"
-          >
-            Generate
+          <Button type="submit" size="lg" className="w-full font-bold">
+            {/* bg-gradient-to-r from-indigo-400 to-cyan-400 */}
+            Generate recipe
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         )}
       </form>
