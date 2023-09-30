@@ -10,7 +10,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chef-genie.vercel.app'),
+  metadataBase: new URL('https://chef-genie.app'),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     "Recipe Generator",
     "Recipe ChatGPT",
     "Recipe AI",
+    "Meal generator",
+    "Cook GPT",
+    "Cooking gerator"
   ],
   authors: [
     {
