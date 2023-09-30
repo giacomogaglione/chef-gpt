@@ -23,12 +23,12 @@ import {
 import { SelectFormField } from "@/components/form/select-form-field"
 import { SwitchFormField } from "@/components/form/switch-form-field"
 
-interface RecipeFormProps2 {
+interface RecipeFormProps {
   onSubmit: (values: FormData, e: React.FormEvent) => void
   isLoading: boolean
 }
 
-export function RecipeForm2({ onSubmit, isLoading }: RecipeFormProps2) {
+export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues,
