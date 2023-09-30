@@ -9,6 +9,9 @@ export default function IndexPage() {
           <span className="bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent">
             {" Chef Genie"}
           </span>
+          <h2 className="tracking-tighters text-xl font-semibold leading-tight">
+            Cooking assistant powered by OpenAI and ChatGPT
+          </h2>
         </h1>
       </div>
       <GenerateRecipe />

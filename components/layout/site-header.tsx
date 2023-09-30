@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { SignOutButton } from "@clerk/nextjs"
 import type { User } from "@clerk/nextjs/dist/types/server"
 
 import { siteConfig } from "@/config/site"
@@ -17,8 +18,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Icons } from "@/components/icons"
-import { MainNav } from "@/components/main-nav"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { MainNav } from "@/components/layout/main-nav"
+import { ThemeToggle } from "@/components/layout/theme-toggle"
 
 interface SiteHeaderProps {
   user: User | null
@@ -42,10 +43,10 @@ export function SiteHeader({ user }: SiteHeaderProps) {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    variant="secondary"
-                    className="relative h-8 w-8 rounded-full"
+                    variant="ghost"
+                    className="relative h-7 w-7 rounded-full"
                   >
-                    <Avatar className="h-8 w-8">
+                    <Avatar className="h-7 w-7">
                       <AvatarImage
                         src={user.imageUrl}
                         alt={user.username ?? ""}
@@ -89,28 +90,18 @@ export function SiteHeader({ user }: SiteHeaderProps) {
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link href="/signout">
-                      <Icons.logout
-                        className="mr-2 h-4 w-4"
-                        aria-hidden="true"
-                      />
-                      Log out
-                      <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-                    </Link>
+                  <DropdownMenuItem>
+                    <Icons.logout className="mr-2 h-4 w-4" aria-hidden="true" />
+                    <SignOutButton />
+                    <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
               <>
                 <Link href="/sign-in">
-                  <Button variant="outline" size="xs" className="mx-1 md:mx-3">
-                    Log In
-                  </Button>
-                </Link>
-                <Link href="/sign-up">
                   <Button size="xs" className="mx-1 md:mx-3">
-                    Sign Up
+                    Sign In
                   </Button>
                 </Link>
               </>

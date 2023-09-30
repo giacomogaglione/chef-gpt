@@ -7,8 +7,8 @@ import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"
-import { Footer } from "@/components/footer"
-import { SiteHeader } from "@/components/site-header"
+import { Footer } from "@/components/layout/footer"
+import { SiteHeader } from "@/components/layout/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -73,10 +73,9 @@ interface RootLayoutProps {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   const user = await currentUser()
-  const clerkPubKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
   return (
-    <ClerkProvider publishableKey={clerkPubKey}>
+    <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head />
         <body

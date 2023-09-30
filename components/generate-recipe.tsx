@@ -107,7 +107,7 @@ export function GenerateRecipe() {
           "": !loading && !recipeVisible,
         })}
       >
-        <div className="my-4 md:flex md:flex-row-reverse">
+        <div className="my-2 md:flex md:flex-row-reverse">
           {generatedRecipe && (
             <>
               <div className="flex justify-end px-4">
