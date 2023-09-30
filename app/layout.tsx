@@ -1,14 +1,12 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
-import { ClerkProvider, currentUser } from "@clerk/nextjs"
+import { ClerkProvider } from "@clerk/nextjs"
 import { Analytics } from "@vercel/analytics/react"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"
-import { Footer } from "@/components/layout/footer"
-import { SiteHeader } from "@/components/layout/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -72,7 +70,6 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
-  const user = await currentUser()
 
   return (
     <ClerkProvider>
@@ -86,9 +83,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
-              <SiteHeader user={user} />
               <div className="mx-auto flex-1">{children}</div>
-              <Footer />
             </div>
             <Analytics />
           </ThemeProvider>
