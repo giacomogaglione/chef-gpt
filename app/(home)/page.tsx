@@ -10,7 +10,7 @@ export default function IndexPage() {
             {" Chef Genie"}
           </span>
         </h1>
-        <h2 className="mx-auto max-w-5xl font-semibold leading-tight tracking-tighter">
+        <h2 className="mx-auto text-xl font-semibold leading-tight tracking-tighter text-muted-foreground">
           Recipe generator powered by OpenAi and ChatGPT
         </h2>
       </div>

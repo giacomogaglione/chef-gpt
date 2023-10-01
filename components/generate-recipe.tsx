@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from "react"
-import { Heart } from "lucide-react"
 
 import { defaultValues, type FormData } from "@/types/types"
 import { generatePrompt } from "@/lib/generate-prompt"
@@ -12,6 +11,7 @@ import { ToastAction } from "@/components/ui/toast"
 import { toast } from "@/components/ui/use-toast"
 import { RecipeForm } from "@/components/form/recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
+import { Icons } from "@/components/icons"
 
 export function GenerateRecipe() {
   const [generatedRecipe, setGeneratedRecipe] = useState<string>("")
@@ -87,37 +87,40 @@ export function GenerateRecipe() {
   }
 
   return (
-    <div
-      className={cn("mx-auto w-full space-x-2", {
-        "md:flex": loading || recipeVisible,
-        "max-w-2xl": !loading && !recipeVisible,
-      })}
-    >
+    <div className="max-w-5xl">
       <div
-        className={cn("w-full justify-around", {
-          "md:flex md:w-1/3": loading || recipeVisible,
-          "": !loading && !recipeVisible,
+        className={cn("mx-auto w-full space-x-2", {
+          "md:flex": loading || recipeVisible,
+          "max-w-2xl": !loading && !recipeVisible,
         })}
       >
-        <RecipeForm onSubmit={onSubmit} isLoading={loading} />
-      </div>
-      <div
-        className={cn({
-          "rounded-xl border md:flex md:w-2/3": loading || recipeVisible,
-          "": !loading && !recipeVisible,
-        })}
-      >
-        <div className="my-2 md:flex md:flex-row-reverse">
-          {generatedRecipe && (
-            <>
-              <div className="flex justify-end px-4">
-                <Button variant="outline" onClick={saveRecipe}>
-                  <Heart className="mr-2 h-4 w-4" /> Save
-                </Button>
-              </div>
-              <GeneratedRecipeContent recipe={generatedRecipe} />
-            </>
-          )}
+        <div
+          className={cn("w-full justify-around", {
+            "md:flex md:w-1/3": loading || recipeVisible,
+            "": !loading && !recipeVisible,
+          })}
+        >
+          <RecipeForm onSubmit={onSubmit} isLoading={loading} />
+        </div>
+        <div
+          className={cn({
+            "rounded-xl border md:flex md:w-2/3": loading || recipeVisible,
+            "": !loading && !recipeVisible,
+          })}
+        >
+          <div className="my-2 md:flex md:flex-row-reverse">
+            {generatedRecipe && (
+              <>
+                <div className="flex justify-end px-4">
+                  <Button variant="outline" onClick={saveRecipe}>
+                    <Icons.heart className="mr-2 h-4 w-4" aria-hidden="true" />
+                    Save
+                  </Button>
+                </div>
+                <GeneratedRecipeContent recipe={generatedRecipe} />
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

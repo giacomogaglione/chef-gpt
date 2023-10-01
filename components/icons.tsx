@@ -1,16 +1,18 @@
 import {
   Activity,
-  ArrowRight,
   ChefHat,
+  Heart,
+  Loader2,
   LogOut,
-  LucideProps,
   Moon,
+  SendHorizontal,
   Settings,
   SunMedium,
   Terminal,
   Twitter,
   User,
-  type Icon as LucideIcon,
+  type LucideIcon,
+  type LucideProps,
 } from "lucide-react"
 
 export type Icon = LucideIcon
@@ -25,7 +27,9 @@ export const Icons = {
   settings: Settings,
   logout: LogOut,
   spinner: Activity,
-  arrowright: ArrowRight,
+  send: SendHorizontal,
+  heart: Heart,
+  loader: Loader2,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

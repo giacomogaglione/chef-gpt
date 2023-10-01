@@ -1,6 +1,5 @@
 import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { ArrowRight, Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 
 import { defaultValues, formSchema, type FormData } from "@/types/types"
@@ -22,6 +21,7 @@ import {
 } from "@/components/form/radio-group-form-field"
 import { SelectFormField } from "@/components/form/select-form-field"
 import { SwitchFormField } from "@/components/form/switch-form-field"
+import { Icons } from "@/components/icons"
 
 interface RecipeFormProps {
   onSubmit: (values: FormData, e: React.FormEvent) => void
@@ -108,14 +108,17 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
         </FormItem>
         {isLoading ? (
           <Button disabled size="lg" className="w-full font-semibold">
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            <Icons.loader
+              className="mr-2 h-4 w-4 animate-spin"
+              aria-hidden="true"
+            />
             Generating recipe
           </Button>
         ) : (
           <Button type="submit" size="lg" className="w-full font-bold">
             {/* bg-gradient-to-r from-indigo-400 to-cyan-400 */}
             Generate recipe
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <Icons.send className="ml-2 h-4 w-4" aria-hidden="true" />
           </Button>
         )}
       </form>
