@@ -1,3 +1,4 @@
+import { type Metadata } from "next"
 import { revalidatePath } from "next/cache"
 import { auth } from "@clerk/nextjs"
 
@@ -10,7 +11,12 @@ export const dynamic = "force-dynamic"
 */
 type Recipe = Database["public"]["Tables"]["recipes"]["Row"]
 
-export default async function ServerComponent() {
+export const metadata: Metadata = {
+  metadataBase: new URL("https://chef-genie.app"),
+  title: "My Recipes",
+  description: "Manage your recipes history.",
+}
+export default async function RecipePage() {
   const { getToken, userId } = auth()
   const supabaseAccessToken = await getToken({ template: "chef-genie" })
   const supabase = await supabaseClient(supabaseAccessToken as string)

@@ -5,7 +5,7 @@ export const siteConfig = {
   url: "https://chef-genie.app",
   ogImage: "https://chef-genie.app/og.png",
   description:
-    "Cooking assistant powered by OpenAi and ChatGPT. Say goodbye to mealtime indecision.",
+    "An open source recipe generator powered by OpenAi and ChatGPT.",
   mainNav: [
     {
       title: "Chef Genie Homepage",
