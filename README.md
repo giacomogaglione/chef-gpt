@@ -1,15 +1,15 @@
-# Chef Genie
+# [Chef Genie](https://chef-genie.app)
 
-Customizable recipe generator powered by OpenAI and ChatGPT.
+An open source recipe generator powered by OpenAi and ChatGPT.
 
 ![hero](public/og_git.png)
 
-> **Note**
+> **Warning**
 This project is still in development and is not ready for production use.
 
 ## Features
 
-- **Framework**: [Next.js](https://nextjs.org/)
+- **Framework**: [Next.js](https://nextjs.org/) 13 `/app` dir 
 - **Database**: [Supabase](https://supabase.com/)
 - **Authentication**: [Clerk](https://clerk.com/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
