@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ToastAction } from "@/components/ui/toast"
 import { toast } from "@/components/ui/use-toast"
-import { RecipeForm } from "@/components/form/recipe-form"
+import { RecipeForm } from "@/components/form/generate-recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
 import { Icons } from "@/components/icons"
 
