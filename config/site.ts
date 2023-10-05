@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Chef Genie - Say goodbye to mealtime indecision",
+  name: "Chef Genie",
   url: "https://chef-genie.app",
   ogImage: "https://chef-genie.app/og.png",
   description:
