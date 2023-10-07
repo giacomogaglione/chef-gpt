@@ -22,9 +22,10 @@ export const metadata: Metadata = {
     "Recipe Generator",
     "Recipe ChatGPT",
     "Recipe AI",
+    "Chef AI",
     "Meal generator",
     "Cook GPT",
-    "Cooking gerator",
+    "Cooking generator",
   ],
   authors: [
     {
