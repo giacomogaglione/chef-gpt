@@ -1,7 +1,7 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
 import { ClerkProvider } from "@clerk/nextjs"
-import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -85,7 +85,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             <div className="relative flex min-h-screen flex-col">
               <div className="mx-auto flex-1">{children}</div>
             </div>
-            <Analytics />
+            <SpeedInsights />
           </ThemeProvider>
           <Toaster />
         </body>
