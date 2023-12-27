@@ -115,8 +115,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             Generating recipe
           </Button>
         ) : (
-          <Button type="submit" size="lg" className="w-full font-bold">
-            {/* bg-gradient-to-r from-indigo-400 to-cyan-400 */}
+          <Button type="submit" size="lg" className="w-full font-semibold">
             Generate recipe
             <Icons.send className="ml-2 h-4 w-4" aria-hidden="true" />
           </Button>

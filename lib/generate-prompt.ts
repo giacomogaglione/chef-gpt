@@ -1,30 +1,40 @@
 import { FormData } from "@/types/types"
 
 export function generatePrompt(values: FormData): string {
-  return `You are an expert culinary chef. Create a meal recipe by strictly following these rules:
+  const dietRestrictions = `
+    - Low-calorie: ${values.low_calori ? "Yes" : "No"}
+    - Vegan: ${values.vegan ? "Yes" : "No"}
+    - Paleo: ${values.paleo ? "Yes" : "No"}
+  `
+  return `
+    As a skilled culinary chef, craft a delightful meal recipe with the following considerations:
 
-  Rules:
-- The recipe must have a list of instructions;
-- Diet:
-    - Low-calori: ${values.low_calori} ;
-    - Vegan: ${values.vegan} ;
-    - Paleo: ${values.paleo} ;
-- Ingredients available: ${values.ingredients} . Do not use ingredients that are incompatible with diet euqual to true;
-- Cooking time: less than ${values.cooking_time} minutes;
-- The recipe must be for ${values.people} people;
-- Difficulty of execution: ${values.difficulty} ;
-    
-Example with ingredients: Mince, Mushroom, Pasta:
+    Rules:
+      - Include detailed instructions for the recipe.
+      - Adhere to the following dietary preferences:
+        ${dietRestrictions}
+      - Utilize the only available ingredients (${values.ingredients}).
+        Avoid incompatible ingredients based on the specified diet.
+      - Ensure the cooking time is under ${values.cooking_time} minutes.
+      - Design the recipe to serve ${values.people} people.
+      - Evaluate the difficulty of execution as ${values.difficulty}.
 
-Mince and Mushroom Pasta
+    Let's illustrate with a delightful example featuring ingredients like Mince, Mushroom, and Pasta:
 
-Ingredients:
-- Mince
-- Mushroom
-- Pasta
-
-Instructions:
-1. Put pasta in boiling water
-2. Fry mince and mushroom
-`
+    Mince and Mushroom Pasta
+  
+    Ingredients:
+      - Mince
+      - Mushroom
+      - Pasta
+  
+    Instructions:
+      1. Begin by boiling water for the pasta.
+      2. In a pan, sauté the mince and mushrooms until golden.
+      3. Cook the pasta in the boiling water until al dente.
+      4. Combine the cooked mince, mushrooms, and pasta.
+      5. Season to taste and serve hot.
+  
+    Get creative and have fun crafting your unique culinary masterpiece!
+  `
 }

@@ -104,23 +104,26 @@ export function GenerateRecipe() {
         </div>
         <div
           className={cn({
-            "rounded-xl border md:flex md:w-2/3": loading || recipeVisible,
+            "justify-around rounded-xl md:flex md:flex-col md:w-2/3":
+              loading || recipeVisible,
             "": !loading && !recipeVisible,
           })}
         >
-          <div className="my-2 md:flex md:flex-row-reverse">
+          <div className="my-2 md:flex">
             {generatedRecipe && (
               <>
-                <div className="flex justify-end px-4">
-                  <Button variant="outline" onClick={saveRecipe}>
-                    <Icons.heart className="mr-2 h-4 w-4" aria-hidden="true" />
-                    Save
-                  </Button>
-                </div>
                 <GeneratedRecipeContent recipe={generatedRecipe} />
               </>
             )}
           </div>
+          {generatedRecipe && recipeVisible && (
+            <div className="flex justify-end">
+              <Button variant="outline" size="lg" onClick={saveRecipe}>
+                <Icons.heart className="mr-2 h-4 w-4" aria-hidden="true" />
+                Save
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </div>
