@@ -5,6 +5,7 @@ import React, { useState } from "react"
 import { defaultValues, type FormData } from "@/types/types"
 import { generatePrompt } from "@/lib/generate-prompt"
 import { generateRecipe } from "@/lib/generate-recipe"
+import { saveRecipeToAPI } from "@/lib/save-recipe"
 import { cn } from "@/lib/utils"
 import { ToastAction } from "@/components/ui/toast"
 import { toast } from "@/components/ui/use-toast"
@@ -65,36 +66,20 @@ export function GenerateRecipe() {
   }
 
   const handleSaveRecipe = async () => {
-    try {
-      const requestBody = {
-        ...formValues,
-        content: generatedRecipe,
-      }
+    const success = await saveRecipeToAPI(formValues, generatedRecipe)
 
-      const response = await fetch("/api/save-recipe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestBody),
-      })
-
+    if (success) {
       toast({
         title: "Cool!",
         description: "Recipe successfully saved",
       })
-
-      if (!response.ok) {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Account needed.",
-          description: "Sign-in to save your recipe",
-          action: <ToastAction altText="Sign-in">Sign-In</ToastAction>,
-        })
-        throw new Error("Failed to save the recipe.")
-      }
-    } catch (error) {
-      console.error(error)
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Account needed.",
+        description: "Sign-in to save your recipe",
+        action: <ToastAction altText="Sign-in">Sign-In</ToastAction>,
+      })
     }
   }
 
@@ -102,6 +87,7 @@ export function GenerateRecipe() {
     e.preventDefault()
     const prompt = generatePrompt(values)
     await handleRecipeGeneration(prompt)
+    setFormValues(values)
   }
 
   const saveRecipe = async () => {
