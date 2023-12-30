@@ -6,53 +6,65 @@ import { defaultValues, type FormData } from "@/types/types"
 import { generatePrompt } from "@/lib/generate-prompt"
 import { generateRecipe } from "@/lib/generate-recipe"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import { ToastAction } from "@/components/ui/toast"
 import { toast } from "@/components/ui/use-toast"
 import { RecipeForm } from "@/components/form/generate-recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
-import { Icons } from "@/components/icons"
+import { SaveButton } from "@/components/save-button"
 
 export function GenerateRecipe() {
   const [generatedRecipe, setGeneratedRecipe] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
   const [recipeVisible, setRecipeVisible] = useState<boolean>(false)
   const [formValues, setFormValues] = useState<FormData>(defaultValues)
+  const [ingredients, setIngredients] = useState<string>("")
 
-  const onSubmit = async (values: FormData, e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-    setGeneratedRecipe("")
+  const handleRecipeGeneration = async (prompt: string) => {
+    try {
+      setLoading(true)
+      setGeneratedRecipe("")
+      const response = await generateRecipe(prompt)
 
-    const prompt = generatePrompt(values)
-    const response = await generateRecipe(prompt)
-    setFormValues(values)
+      if (!response.ok) {
+        throw new Error(response.statusText)
+      }
 
-    if (!response.ok) {
-      throw new Error(response.statusText)
-    }
+      const data = response.body
+      if (!data) {
+        return
+      }
 
-    const data = response.body
-    if (!data) {
-      return
-    }
+      const reader = data.getReader()
+      const decoder = new TextDecoder()
+      let done = false
+      let recipeText = ""
 
-    const reader = data.getReader()
-    const decoder = new TextDecoder()
-    let done = false
+      while (!done) {
+        const { value, done: doneReading } = await reader.read()
+        done = doneReading
+        const chunkValue = decoder.decode(value)
+        const formattedChunk = chunkValue.replace(/\n/g, "<br>")
+        recipeText += formattedChunk
+        setGeneratedRecipe(recipeText)
+        setRecipeVisible(true)
+        setLoading(false)
+      }
 
-    while (!done) {
-      const { value, done: doneReading } = await reader.read()
-      done = doneReading
-      const chunkValue = decoder.decode(value)
-      const formattedChunk = chunkValue.replace(/\n/g, "<br>")
-      setGeneratedRecipe((prev) => prev + formattedChunk)
-      setRecipeVisible(true)
-      setLoading(false)
+      // Extract ingredients from the generated recipe
+      const ingredientsMatch = recipeText.match(
+        /Ingredients:([\s\S]*?)Instructions:/
+      )
+      const extractedIngredients = ingredientsMatch
+        ? ingredientsMatch[1].trim()
+        : ""
+
+      setIngredients(extractedIngredients)
+    } catch (error) {
+      console.error(error)
     }
   }
 
-  const saveRecipe = async () => {
+  const handleSaveRecipe = async () => {
     try {
       const requestBody = {
         ...formValues,
@@ -86,6 +98,16 @@ export function GenerateRecipe() {
     }
   }
 
+  const onSubmit = async (values: FormData, e: React.FormEvent) => {
+    e.preventDefault()
+    const prompt = generatePrompt(values)
+    await handleRecipeGeneration(prompt)
+  }
+
+  const saveRecipe = async () => {
+    await handleSaveRecipe()
+  }
+
   return (
     <div className="max-w-5xl">
       <div
@@ -112,17 +134,15 @@ export function GenerateRecipe() {
           <div className="my-2 md:flex">
             {generatedRecipe && (
               <>
-                <GeneratedRecipeContent recipe={generatedRecipe} />
+                <GeneratedRecipeContent
+                  ingredients={ingredients}
+                  recipe={generatedRecipe}
+                />
               </>
             )}
           </div>
           {generatedRecipe && recipeVisible && (
-            <div className="flex justify-end">
-              <Button variant="outline" size="lg" onClick={saveRecipe}>
-                <Icons.heart className="mr-2 h-4 w-4" aria-hidden="true" />
-                Save
-              </Button>
-            </div>
+            <SaveButton onClick={saveRecipe} />
           )}
         </div>
       </div>
