@@ -39,13 +39,6 @@ export function GenerateRecipe() {
 
   const { complete, isLoading } = useCompletion({
     api: "/api/generate-recipe",
-    onResponse: (res) => {
-      if (res.status === 429) {
-      }
-    },
-    onError: (error) => {
-      console.log(error)
-    },
     onFinish: () => {
       setRecipeVisible(true)
     },
