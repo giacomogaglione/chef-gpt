@@ -10,11 +10,10 @@ export function generatePrompt(values: FormData): string {
     As a skilled culinary chef, craft a delightful meal recipe with the following considerations:
 
     Rules:
-      - Response must be in json format
+      - Response must be in JSON format.
       - Include detailed instructions for the recipe.
-      - Adhere to the following dietary preferences:
-        ${dietRestrictions}
-      - Utilize the only available ingredients (${values.ingredients}).
+      - Adhere to the following dietary preferences: ${dietRestrictions}
+      - Utilize only the available ingredients (${values.ingredients}).
         Avoid incompatible ingredients based on the specified diet.
       - Ensure the cooking time is under ${values.cooking_time} minutes.
       - Design the recipe to serve ${values.people} people.
@@ -24,7 +23,7 @@ export function generatePrompt(values: FormData): string {
     - "title": [string]
     - "calories": [number],
     - "macros": {"protein": [number], "fats": [number], "carbs": [number]},
-    - "ingredients": [{"name": [string], "amount": [string]}, ...] (based on the provided diet type),
+    - "ingredients": [{"name": [string], "amount": [string]}, ...] (based on the provided diet type and ingredients provided),
     - "instructions": [{"step": [number], "description": [string]}, ...]
     - "people": [number] (based on the provided input)
     - "difficulty": [string] (based on the provided input)
