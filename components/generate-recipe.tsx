@@ -1,72 +1,26 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
+import { useCompletion } from "ai/react"
 
-import { defaultValues, type FormData } from "@/types/types"
+import { Recipe, defaultValues, type FormData } from "@/types/types"
 import { generatePrompt } from "@/lib/generate-prompt"
-import { generateRecipe } from "@/lib/generate-recipe"
 import { saveRecipeToAPI } from "@/lib/save-recipe"
 import { cn } from "@/lib/utils"
 import { ToastAction } from "@/components/ui/toast"
 import { toast } from "@/components/ui/use-toast"
 import { RecipeForm } from "@/components/form/generate-recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
+import { SkeletonLoading } from "@/components/loading-skeleton"
 import { SaveButton } from "@/components/save-button"
 
 export function GenerateRecipe() {
-  const [generatedRecipe, setGeneratedRecipe] = useState<string>("")
-  const [loading, setLoading] = useState<boolean>(false)
   const [recipeVisible, setRecipeVisible] = useState<boolean>(false)
   const [formValues, setFormValues] = useState<FormData>(defaultValues)
-  const [ingredients, setIngredients] = useState<string>("")
-
-  const handleRecipeGeneration = async (prompt: string) => {
-    try {
-      setLoading(true)
-      setGeneratedRecipe("")
-      const response = await generateRecipe(prompt)
-
-      if (!response.ok) {
-        throw new Error(response.statusText)
-      }
-
-      const data = response.body
-      if (!data) {
-        return
-      }
-
-      const reader = data.getReader()
-      const decoder = new TextDecoder()
-      let done = false
-      let recipeText = ""
-
-      while (!done) {
-        const { value, done: doneReading } = await reader.read()
-        done = doneReading
-        const chunkValue = decoder.decode(value)
-        const formattedChunk = chunkValue.replace(/\n/g, "<br>")
-        recipeText += formattedChunk
-        setGeneratedRecipe(recipeText)
-        setRecipeVisible(true)
-        setLoading(false)
-      }
-
-      // Extract ingredients from the generated recipe
-      const ingredientsMatch = recipeText.match(
-        /Ingredients:([\s\S]*?)Instructions:/
-      )
-      const extractedIngredients = ingredientsMatch
-        ? ingredientsMatch[1].trim()
-        : ""
-
-      setIngredients(extractedIngredients)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  const [recipe, setRecipe] = useState<Recipe | null>(null)
 
   const handleSaveRecipe = async () => {
-    const success = await saveRecipeToAPI(formValues, generatedRecipe)
+    const success = await saveRecipeToAPI(formValues, recipe)
 
     if (success) {
       toast({
@@ -83,12 +37,31 @@ export function GenerateRecipe() {
     }
   }
 
-  const onSubmit = async (values: FormData, e: React.FormEvent) => {
-    e.preventDefault()
-    const prompt = generatePrompt(values)
-    await handleRecipeGeneration(prompt)
-    setFormValues(values)
-  }
+  const { complete, isLoading } = useCompletion({
+    api: "/api/generate-recipe",
+    onResponse: (res) => {
+      if (res.status === 429) {
+      }
+    },
+    onError: (error) => {
+      console.log(error)
+    },
+    onFinish: () => {
+      setRecipeVisible(true)
+    },
+  })
+
+  const onSubmit = useCallback(
+    async (values: FormData, e: React.FormEvent) => {
+      const prompt = generatePrompt(values)
+      const completion = await complete(prompt)
+      setFormValues(values)
+      if (!completion) throw new Error("Failed to get meal plan. Try again.")
+      const result = JSON.parse(completion)
+      setRecipe(result)
+    },
+    [complete]
+  )
 
   const saveRecipe = async () => {
     await handleSaveRecipe()
@@ -98,38 +71,35 @@ export function GenerateRecipe() {
     <div className="max-w-5xl">
       <div
         className={cn("mx-auto w-full space-x-2", {
-          "md:flex": loading || recipeVisible,
-          "max-w-2xl": !loading && !recipeVisible,
+          "md:flex": isLoading || recipeVisible,
+          "max-w-2xl": !isLoading && !recipeVisible,
         })}
       >
         <div
           className={cn("w-full justify-around", {
-            "md:flex md:w-1/3": loading || recipeVisible,
-            "": !loading && !recipeVisible,
+            "md:flex md:w-1/3": isLoading || recipeVisible,
+            "": !isLoading && !recipeVisible,
           })}
         >
-          <RecipeForm onSubmit={onSubmit} isLoading={loading} />
+          <RecipeForm onSubmit={onSubmit} isLoading={isLoading} />
         </div>
         <div
           className={cn({
             "justify-around rounded-xl md:flex md:flex-col md:w-2/3":
-              loading || recipeVisible,
-            "": !loading && !recipeVisible,
+              isLoading || recipeVisible,
+            "": !isLoading && !recipeVisible,
           })}
         >
           <div className="my-2 md:flex">
-            {generatedRecipe && (
-              <>
-                <GeneratedRecipeContent
-                  ingredients={ingredients}
-                  recipe={generatedRecipe}
-                />
-              </>
+            {isLoading ? (
+              <SkeletonLoading />
+            ) : (
+              recipe && (
+                <GeneratedRecipeContent recipe={recipe} setRecipe={setRecipe} />
+              )
             )}
           </div>
-          {generatedRecipe && recipeVisible && (
-            <SaveButton onClick={saveRecipe} />
-          )}
+          {recipeVisible && <SaveButton onClick={saveRecipe} />}
         </div>
       </div>
     </div>

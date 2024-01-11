@@ -30,3 +30,17 @@ export const defaultValues: FormData = {
 }
 
 export type FormData = z.infer<typeof formSchema>
+
+export interface Recipe {
+  title: string
+  cooking_time: number
+  calories: number
+  difficulty: string
+  macros: {
+    protein: number
+    fats: number
+    carbs: number
+  }
+  ingredients: Array<{ name: string; amount: number | string }>
+  instructions: Array<{ step: number; description: string | string }>
+}

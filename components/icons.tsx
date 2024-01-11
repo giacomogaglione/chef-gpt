@@ -1,6 +1,8 @@
 import {
   Activity,
   ChefHat,
+  Dumbbell,
+  Flame,
   Heart,
   Loader2,
   LogOut,
@@ -9,8 +11,10 @@ import {
   Settings,
   SunMedium,
   Terminal,
+  Timer,
   Twitter,
   User,
+  Users,
   type LucideIcon,
   type LucideProps,
 } from "lucide-react"
@@ -30,6 +34,10 @@ export const Icons = {
   send: SendHorizontal,
   heart: Heart,
   loader: Loader2,
+  cooking_time: Timer,
+  calories: Flame,
+  people: Users,
+  difficulty: Dumbbell,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

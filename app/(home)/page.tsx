@@ -11,7 +11,7 @@ export default function IndexPage() {
           </span>
         </h1>
         <h2 className="mx-auto text-xl font-semibold leading-tight tracking-tighter text-muted-foreground">
-          Recipe generator powered by OpenAi and ChatGPT
+          Recipe generator powered by OpenAI and ChatGPT
         </h2>
       </div>
       <GenerateRecipe />

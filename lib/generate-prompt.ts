@@ -10,6 +10,7 @@ export function generatePrompt(values: FormData): string {
     As a skilled culinary chef, craft a delightful meal recipe with the following considerations:
 
     Rules:
+      - Response must be in json format
       - Include detailed instructions for the recipe.
       - Adhere to the following dietary preferences:
         ${dietRestrictions}
@@ -19,22 +20,30 @@ export function generatePrompt(values: FormData): string {
       - Design the recipe to serve ${values.people} people.
       - Evaluate the difficulty of execution as ${values.difficulty}.
 
-    Let's illustrate with a delightful example featuring ingredients like Mince, Mushroom, and Pasta:
-
-    Mince and Mushroom Pasta
+    The JSON object must include the following fields:
+    - "title": [string]
+    - "calories": [number],
+    - "macros": {"protein": [number], "fats": [number], "carbs": [number]},
+    - "ingredients": [{"name": [string], "amount": [string]}, ...] (based on the provided diet type),
+    - "instructions": [{"step": [number], "description": [string]}, ...]
+    - "people": [number] (based on the provided input)
+    - "difficulty": [string] (based on the provided input)
+    - "cooking_time": [number] (based on the provided input)
+    
+    Format the response as a valid JSON object with all fields filled. Here is the structure for reference:
+    
+    {
+      "title": /* details */,
+      "calories":  /* details */ ,
+      "macros": { /* details */ },
+      "ingredients": { /* details */ },
+      "instructions": { /* details */ },
+      "people":  /* details */ ,
+      "difficulty":  /* details */ ,
+      "cooking_time":  /* details */ 
+    }
+    
+    Respond only with the completed JSON object, without any additional explanatory or descriptive text. The JSON should be complete and ready for parsing
   
-    Ingredients:
-      - Mince
-      - Mushroom
-      - Pasta
-  
-    Instructions:
-      1. Begin by boiling water for the pasta.
-      2. In a pan, sauté the mince and mushrooms until golden.
-      3. Cook the pasta in the boiling water until al dente.
-      4. Combine the cooked mince, mushrooms, and pasta.
-      5. Season to taste and serve hot.
-  
-    Get creative and have fun crafting your unique culinary masterpiece!
   `
 }

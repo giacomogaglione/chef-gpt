@@ -1,23 +1,19 @@
-import { OpenAIStream, OpenAIStreamPayload } from "@/lib/openai"
-
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error("Missing env var from OpenAI")
-}
+import { OpenAIStream, StreamingTextResponse } from "ai"
+import OpenAI from "openai"
 
 export const runtime = "edge"
 
-export async function POST(request: Request) {
-  const { prompt } = (await request.json()) as {
-    prompt?: string
-  }
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY!,
+})
 
-  if (!prompt) {
-    return new Response("No prompt in the request", { status: 400 })
-  }
+export async function POST(req: Request) {
+  // Extract the `messages` from the body of the request
+  const { prompt } = await req.json()
 
-  const payload: OpenAIStreamPayload = {
+  // Request the OpenAI API for the response based on the prompt
+  const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: prompt }],
     temperature: 0.4,
     top_p: 0.9,
     frequency_penalty: 0.2,
@@ -25,8 +21,10 @@ export async function POST(request: Request) {
     max_tokens: 700,
     stream: true,
     n: 1,
-  }
+    messages: [{ role: "user", content: prompt }],
+  })
 
-  const stream = await OpenAIStream(payload)
-  return new Response(stream)
+  const stream = OpenAIStream(response)
+
+  return new StreamingTextResponse(stream)
 }
