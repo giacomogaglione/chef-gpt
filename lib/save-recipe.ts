@@ -1,19 +1,22 @@
-import { FormData, Recipe } from "@/types/types";
+import { FormData, Recipe } from "@/types/types"
 
 interface SaveRecipeResponse {
-  success: boolean;
+  success: boolean
 }
 
-export async function saveRecipeToAPI(formValues: FormData, generatedRecipe: Recipe | null): Promise<boolean> {
+export async function saveRecipeToAPI(
+  formValues: FormData,
+  generatedRecipe: Recipe | null
+): Promise<boolean> {
   try {
     if (!generatedRecipe) {
-      throw new Error("Generated recipe is null or undefined.");
+      throw new Error("Generated recipe is null or undefined.")
     }
 
     const requestBody = {
       ...formValues,
       content: generatedRecipe,
-    };
+    }
 
     const response = await fetch("/api/save-recipe", {
       method: "POST",
@@ -21,17 +24,17 @@ export async function saveRecipeToAPI(formValues: FormData, generatedRecipe: Rec
         "Content-Type": "application/json",
       },
       body: JSON.stringify(requestBody),
-    });
+    })
 
     if (!response.ok) {
-      throw new Error("Failed to save the recipe.");
+      throw new Error("Failed to save the recipe.")
     }
 
-    const responseData: SaveRecipeResponse = await response.json();
+    const responseData: SaveRecipeResponse = await response.json()
 
-    return responseData.success;
+    return responseData.success
   } catch (error) {
-    console.error(error);
-    return false;
+    console.error(error)
+    return false
   }
 }
