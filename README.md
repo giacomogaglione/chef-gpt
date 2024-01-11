@@ -2,7 +2,7 @@
 
 An open source recipe generator powered by OpenAi and ChatGPT.
 
-![hero](public/og_git.png)
+![hero](public/og.png)
 
 > **Warning**
 This project is still in development and is not ready for production use.
