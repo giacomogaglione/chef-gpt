@@ -45,7 +45,7 @@ export function GeneratedRecipeContent({
   setRecipe,
 }: GeneratedRecipeContentProps) {
   return (
-    <Card className="mx-auto max-w-3xl">
+    <Card className="mx-auto w-full max-w-3xl">
       <CardHeader>
         <CardTitle className="text-xl font-bold">{recipe?.title}</CardTitle>
       </CardHeader>
