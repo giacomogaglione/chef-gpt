@@ -11,7 +11,7 @@ import { ToastAction } from "@/components/ui/toast"
 import { toast } from "@/components/ui/use-toast"
 import { RecipeForm } from "@/components/form/generate-recipe-form"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
-import { SkeletonLoading } from "@/components/loading-skeleton"
+import { GeneratedRecipeLoading } from "@/components/generated-recipe-loading"
 import { SaveButton } from "@/components/save-button"
 
 export function GenerateRecipe() {
@@ -85,7 +85,7 @@ export function GenerateRecipe() {
         >
           <div className="my-2 md:flex">
             {isLoading ? (
-              <SkeletonLoading />
+              <GeneratedRecipeLoading />
             ) : (
               recipe && (
                 <GeneratedRecipeContent recipe={recipe} setRecipe={setRecipe} />

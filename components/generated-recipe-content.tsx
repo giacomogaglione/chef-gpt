@@ -5,35 +5,7 @@ import React, { Dispatch, SetStateAction } from "react"
 import { Recipe } from "@/types/types"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { Icons } from "@/components/icons"
-
-const macroInfo = [
-  { label: "Protein", value: "protein" },
-  { label: "Fats", value: "fats" },
-  { label: "Carbs", value: "carbs" },
-]
-const recipeInfo = [
-  {
-    icon: <Icons.cooking_time className="h-4 w-4" aria-hidden="true" />,
-    value: "cooking_time",
-    additionalText: "minutes",
-  },
-  {
-    icon: <Icons.people className="h-4 w-4" aria-hidden="true" />,
-    value: "people",
-    additionalText: "servings",
-  },
-  {
-    icon: <Icons.calories className="h-4 w-4" aria-hidden="true" />,
-    value: "calories",
-    additionalText: "calories",
-  },
-  {
-    icon: <Icons.difficulty className="h-4 w-4" aria-hidden="true" />,
-    value: "difficulty",
-    additionalText: "",
-  },
-]
+import { macroInfo, recipeInfo } from "@/components/recipe-costants"
 
 interface GeneratedRecipeContentProps {
   recipe: Recipe
@@ -50,6 +22,7 @@ export function GeneratedRecipeContent({
         <CardTitle className="text-xl font-bold">{recipe?.title}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4 text-sm">
+        {/* Recipe Info Section */}
         <div className="grid grid-cols-2 gap-4 text-muted-foreground">
           {recipeInfo.map((info, index) => (
             <div key={index} className="flex items-center gap-2">
@@ -61,6 +34,7 @@ export function GeneratedRecipeContent({
           ))}
         </div>
 
+        {/* Macros Info Section */}
         <div className="grid grid-cols-3 gap-4">
           {macroInfo.map((macro, index) => (
             <div key={index} className="flex flex-col items-center gap-2">
@@ -78,6 +52,7 @@ export function GeneratedRecipeContent({
           ))}
         </div>
 
+        {/* Ingredients Section */}
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">Ingredients</h3>
           <ol className="list-disc pl-4">
@@ -95,6 +70,8 @@ export function GeneratedRecipeContent({
             )}
           </ol>
         </div>
+
+        {/* Instructions Section */}
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">Instructions</h3>
           <ol className="list-decimal pl-4">
