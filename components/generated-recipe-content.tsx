@@ -28,7 +28,7 @@ export function GeneratedRecipeContent({
   }))
 
   return (
-    <Card className="mx-auto w-full max-w-3xl">
+    <Card className="w-full max-w-3xl">
       <CardHeader>
         <CardTitle className="text-xl font-bold">{recipe?.title}</CardTitle>
       </CardHeader>

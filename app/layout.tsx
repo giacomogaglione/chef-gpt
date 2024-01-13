@@ -83,9 +83,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <div className="mx-auto flex-1">{children}</div>
-            </div>
+            {children}
             <SpeedInsights />
             <Analytics />
           </ThemeProvider>

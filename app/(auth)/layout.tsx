@@ -13,7 +13,7 @@ export default async function AuthLayout({ children }: AuthLayoutProps) {
   return (
     <div className="relative flex min-h-screen flex-col">
       <SiteHeader user={user} />
-      <div className="mx-auto flex-1">{children}</div>
+      <main className="mx-auto flex-1">{children}</main>
       <SiteFooter />
     </div>
   )

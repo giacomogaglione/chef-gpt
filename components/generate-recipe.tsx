@@ -62,13 +62,13 @@ export function GenerateRecipe() {
   return (
     <div className="max-w-5xl">
       <div
-        className={cn("mx-auto w-full space-y-6 md:space-x-6 md:space-y-0", {
+        className={cn("mx-auto space-y-6 md:space-x-6 md:space-y-0", {
           "md:flex": isLoading || isRecipeVisible,
           "max-w-2xl": !isLoading && !isRecipeVisible,
         })}
       >
         <div
-          className={cn("w-full", {
+          className={cn("", {
             "md:flex md:w-1/3": isLoading || isRecipeVisible,
             "": !isLoading && !isRecipeVisible,
           })}
