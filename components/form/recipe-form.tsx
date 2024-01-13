@@ -36,10 +36,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full space-y-4 md:px-4"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
         <FormField
           control={form.control}
           name="ingredients"
@@ -117,7 +114,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
         ) : (
           <Button type="submit" size="lg" className="w-full font-semibold">
             Generate recipe
-            <Icons.send className="ml-2 h-4 w-4" aria-hidden="true" />
+            <Icons.generate className="ml-2 h-4 w-4" aria-hidden="true" />
           </Button>
         )}
       </form>

@@ -1,18 +1,5 @@
-import { FormData, Recipe } from "@/types/types"
-
-interface SaveRecipeResponse {
-  success: boolean
-}
-
-export async function saveRecipeToAPI(
-  formValues: FormData,
-  generatedRecipe: Recipe | null
-): Promise<boolean> {
+export async function saveRecipe(formValues, generatedRecipe) {
   try {
-    if (!generatedRecipe) {
-      throw new Error("Generated recipe is null or undefined.")
-    }
-
     const requestBody = {
       ...formValues,
       content: generatedRecipe,
@@ -30,9 +17,7 @@ export async function saveRecipeToAPI(
       throw new Error("Failed to save the recipe.")
     }
 
-    const responseData: SaveRecipeResponse = await response.json()
-
-    return responseData.success
+    return true
   } catch (error) {
     console.error(error)
     return false

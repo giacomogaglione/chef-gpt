@@ -13,6 +13,11 @@ export const recipeInfo = [
     additionalText: "minutes",
   },
   {
+    icon: <Icons.difficulty className="h-4 w-4" aria-hidden="true" />,
+    value: "difficulty",
+    additionalText: "",
+  },
+  {
     icon: <Icons.people className="h-4 w-4" aria-hidden="true" />,
     value: "people",
     additionalText: "servings",
@@ -21,10 +26,5 @@ export const recipeInfo = [
     icon: <Icons.calories className="h-4 w-4" aria-hidden="true" />,
     value: "calories",
     additionalText: "calories",
-  },
-  {
-    icon: <Icons.difficulty className="h-4 w-4" aria-hidden="true" />,
-    value: "difficulty",
-    additionalText: "",
   },
 ]

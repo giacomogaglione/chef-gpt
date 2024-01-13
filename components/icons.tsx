@@ -1,7 +1,6 @@
 import {
   Activity,
   ChefHat,
-  Dumbbell,
   Flame,
   Heart,
   Loader2,
@@ -9,6 +8,7 @@ import {
   Moon,
   SendHorizontal,
   Settings,
+  Star,
   SunMedium,
   Terminal,
   Timer,
@@ -31,13 +31,13 @@ export const Icons = {
   settings: Settings,
   logout: LogOut,
   spinner: Activity,
-  send: SendHorizontal,
+  generate: SendHorizontal,
   heart: Heart,
   loader: Loader2,
   cooking_time: Timer,
   calories: Flame,
   people: Users,
-  difficulty: Dumbbell,
+  difficulty: Star,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

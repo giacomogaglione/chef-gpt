@@ -11,9 +11,9 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
   const user = await currentUser()
 
   return (
-    <div className="relative flex min-h-screen flex-col">
+    <div className="relative flex min-h-screen flex-col space-y-4">
       <SiteHeader user={user} />
-      <div className="mx-auto flex-1">{children}</div>
+      <div className="mx-auto flex">{children}</div>
       <SiteFooter />
     </div>
   )
