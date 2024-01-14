@@ -1,14 +1,12 @@
 import { type Metadata } from "next"
 import { revalidatePath } from "next/cache"
+import Link from "next/link"
 import { auth } from "@clerk/nextjs"
 
 import type { Database } from "@/types/supabase"
 import supabaseClient from "@/lib/supabase-client"
 import { RecipeCard } from "@/components/recipe-card"
 
-/*
-export const dynamic = "force-dynamic"
-*/
 type Recipe = Database["public"]["Tables"]["recipes"]["Row"]
 
 export const metadata: Metadata = {
@@ -29,12 +27,14 @@ export default async function RecipePage() {
   revalidatePath("/account")
 
   return (
-    <>
+    <div className="m-4">
       {recipes?.map((recipe) => (
         <div key={recipe.id}>
-          <RecipeCard recipe={recipe as Recipe} />
+          <Link href={`/dashboard/my-recipes/${recipe.id}`}>
+            <RecipeCard recipe={recipe as Recipe} />
+          </Link>
         </div>
       ))}
-    </>
+    </div>
   )
 }

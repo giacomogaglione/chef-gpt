@@ -31,9 +31,9 @@ export async function POST(request: Request) {
     vegan,
     paleo,
     user_id: userId,
-    content: body.content,
+    title: body.content.title,
+    content_json: body.content,
   }
-
   const recipe = await supabase.from("recipes").insert([data])
 
   return NextResponse.json(recipe)

@@ -15,7 +15,7 @@ import { SaveRecipeButton } from "@/components/save-recipe-button"
 
 interface GeneratedRecipeContentProps {
   recipe: Recipe
-  saveRecipe: any
+  saveRecipe?: any
 }
 
 export function GeneratedRecipeContent({
@@ -109,7 +109,7 @@ export function GeneratedRecipeContent({
         </div>
       </CardContent>
       <CardFooter>
-        <SaveRecipeButton onClick={saveRecipe} />
+        {saveRecipe && <SaveRecipeButton onClick={saveRecipe} />}
       </CardFooter>
     </Card>
   )

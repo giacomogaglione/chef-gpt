@@ -1,16 +1,11 @@
 "use client"
 
+import Link from "next/link"
 import { Trash2Icon } from "lucide-react"
 
 import type { Database } from "@/types/supabase"
 import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 type Recipe = Database["public"]["Tables"]["recipes"]["Row"]
 
@@ -41,8 +36,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
     <Card className="my-4">
       <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
         <div className="space-y-1">
-          <CardTitle>{recipe.content?.split("<br>")[0]}</CardTitle>
-          <CardDescription>Ingredients: {recipe.ingredients}</CardDescription>
+          <CardTitle>{recipe.title}</CardTitle>
         </div>
         <div className="flex justify-end">
           <Button
@@ -56,7 +50,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
         </div>
       </CardHeader>
       <CardContent>
-        <div className="flex space-x-4 text-sm text-muted-foreground">
+        <div className="mb-4 flex space-x-4 text-sm text-muted-foreground">
           <div className="flex items-center">
             {"🕛 "} {recipe.cooking_time?.replaceAll(/[^0-9]/g, "")}{" "}
             {" minutes"}
@@ -64,6 +58,11 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
           <div className="flex items-center">👨‍🍳 {recipe.difficulty}</div>
           <div>{new Date(recipe.created_at as string).toDateString()}</div>
         </div>
+        <Link href={`/dashboard/my-recipes/${recipe.id}`}>
+          <Button variant="outline" size="lg" className="w-full">
+            Details
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   )
