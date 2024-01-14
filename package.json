@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.3",
-    "@clerk/themes": "^1.7.5",
-    "@hookform/resolvers": "^3.1.0",
+    "@clerk/themes": "^1.7.9",
+    "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-avatar": "^1.0.3",
     "@radix-ui/react-dropdown-menu": "^2.0.5",
     "@radix-ui/react-label": "^2.0.1",
@@ -29,21 +29,21 @@
     "@supabase/supabase-js": "^2.36.0",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.2",
-    "ai": "^2.2.30",
+    "ai": "^2.2.31",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "lucide-react": "^0.279.0",
-    "next": "^13.4.10",
+    "next": "^13.5.6",
     "next-themes": "^0.2.1",
-    "openai": "^4.24.1",
+    "openai": "^4.24.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.44.3",
+    "react-hook-form": "^7.49.3",
     "recharts": "^2.10.4",
     "supabase": "^1.99.5",
-    "tailwind-merge": "^1.13.2",
-    "tailwindcss-animate": "^1.0.6",
-    "zod": "^3.22.3"
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^3.7.1",
@@ -60,7 +60,7 @@
     "eslint-plugin-tailwindcss": "^3.8.0",
     "postcss": "^8.4.31",
     "prettier": "^2.7.1",
-    "tailwindcss": "^3.3.1",
+    "tailwindcss": "^3.4.1",
     "typescript": "^4.9.3"
   }
 }
