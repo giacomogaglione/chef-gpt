@@ -11,9 +11,9 @@ export default async function AuthLayout({ children }: AuthLayoutProps) {
   const user = await currentUser()
 
   return (
-    <div className="relative flex min-h-screen flex-col gap-4">
+    <div className="relative flex min-h-screen flex-col gap-2">
       <SiteHeader user={user} />
-      <main className="mx-auto flex-1">{children}</main>
+      <main className="mx-auto flex-1 px-8">{children}</main>
       <SiteFooter />
     </div>
   )
