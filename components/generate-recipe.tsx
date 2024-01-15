@@ -30,9 +30,19 @@ export function GenerateRecipe() {
       const prompt = generatePrompt(values)
       const completion = await complete(prompt)
       setFormValues(values)
-      if (!completion) throw new Error("Failed to get meal plan. Try again.")
-      const result = JSON.parse(completion)
-      setRecipe(result)
+      if (!completion) throw new Error("Failed to generate recipe. Try again.")
+      try {
+        const result = JSON.parse(completion)
+        setRecipe(result)
+      } catch (error) {
+        console.error("Error parsing JSON:", error)
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Failed to generate recipe. Try again.",
+          description:
+            "Failed to generate recipe. Please check your input and try again.",
+        })
+      }
     },
     [complete]
   )
@@ -68,31 +78,25 @@ export function GenerateRecipe() {
         })}
       >
         <div
-          className={cn("", {
+          className={cn({
             "md:flex md:w-1/3": isLoading || isRecipeVisible,
-            "": !isLoading && !isRecipeVisible,
           })}
         >
           <RecipeForm onSubmit={onSubmit} isLoading={isLoading} />
         </div>
         <div
           className={cn({
-            "rounded-xl md:flex md:flex-col md:w-2/3":
-              isLoading || isRecipeVisible,
-            "": !isLoading && !isRecipeVisible,
+            "md:flex md:flex-col md:w-2/3": isLoading || isRecipeVisible,
           })}
         >
           <div className="md:flex">
-            {isLoading ? (
-              <GeneratedRecipeLoading />
-            ) : (
-              recipe && (
-                <GeneratedRecipeContent
-                  recipe={recipe}
-                  saveRecipe={onSaveRecipe}
-                />
-              )
+            {!isLoading && recipe && (
+              <GeneratedRecipeContent
+                recipe={recipe}
+                saveRecipe={onSaveRecipe}
+              />
             )}
+            {isLoading && <GeneratedRecipeLoading />}
           </div>
         </div>
       </div>

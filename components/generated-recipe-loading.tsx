@@ -3,7 +3,7 @@ import { recipeInfo } from "@/components/recipe-costants"
 
 export function GeneratedRecipeLoading() {
   return (
-    <div className="h-[628px] w-full max-w-3xl animate-pulse rounded-xl border">
+    <div className="h-[628px] w-full max-w-3xl animate-pulse rounded-lg border">
       <div className="animate-pulse space-y-6 p-6 text-sm text-muted-foreground">
         <p className="text-xl font-bold">
           Generating Recipe, This may take a little time...

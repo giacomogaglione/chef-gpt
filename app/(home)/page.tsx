@@ -2,7 +2,7 @@ import { GenerateRecipe } from "@/components/generate-recipe"
 
 export default function IndexPage() {
   return (
-    <div className="container mt-2 grid gap-6">
+    <div className="container grid gap-6">
       <div className="flex max-w-5xl flex-col gap-2 text-center">
         <h1 className="text-4xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
           Say goodbye to mealtime indecision with

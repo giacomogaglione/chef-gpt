@@ -13,7 +13,7 @@ export default async function DashboardLayout({
   const user = await currentUser()
 
   return (
-    <div className="relative flex min-h-screen flex-col">
+    <div className="relative flex min-h-screen flex-col gap-4">
       <SiteHeader user={user} />
       <main className="mx-auto flex-1">{children}</main>
       <SiteFooter />
