@@ -36,7 +36,7 @@ export function GeneratedRecipeContent({
         <div className="grid space-y-6 rounded-lg border p-3 md:grid-cols-2 md:space-x-4 md:space-y-0">
           {/* Recipe Info Section */}
           <div className="grid grid-cols-2 gap-4 md:gap-0">
-            <div className="grid-cols-subgrid col-span-2 mb-2 grid">
+            <div className="col-span-2 mb-2 grid grid-cols-subgrid">
               <h3 className="text-lg font-semibold">Overview</h3>
             </div>
             {recipeInfo.map((info, index) => (
@@ -50,7 +50,7 @@ export function GeneratedRecipeContent({
           </div>
           {/* Macros BarChart Section */}
           <div className="grid grid-cols-1 gap-4 transition-all md:gap-0">
-            <div className="grid-cols-subgrid col-span-1 mb-2 grid">
+            <div className="col-span-1 mb-2 grid grid-cols-subgrid">
               <h3 className="text-lg font-semibold">Macros</h3>
             </div>
             <ResponsiveContainer width="100%" height={75}>
