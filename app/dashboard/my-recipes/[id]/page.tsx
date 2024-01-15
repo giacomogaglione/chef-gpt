@@ -1,4 +1,5 @@
 import { type Metadata } from "next"
+import { notFound } from "next/navigation"
 import { auth } from "@clerk/nextjs"
 
 import supabaseClient from "@/lib/supabase-client"
@@ -28,6 +29,10 @@ export default async function RecipePage({ params }: RecipePageProps) {
     .single()
 
   const recipe = data ? data.content_json : null
+
+  if (!recipe) {
+    notFound()
+  }
 
   return (
     <div className="m-4">
