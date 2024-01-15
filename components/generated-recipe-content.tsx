@@ -15,7 +15,7 @@ import { SaveRecipeButton } from "@/components/save-recipe-button"
 
 interface GeneratedRecipeContentProps {
   recipe: Recipe
-  saveRecipe?: any
+  saveRecipe?: () => void
 }
 
 export function GeneratedRecipeContent({

@@ -1,6 +1,5 @@
 import { type Metadata } from "next"
 import { revalidatePath } from "next/cache"
-import Link from "next/link"
 import { auth } from "@clerk/nextjs"
 
 import type { Database } from "@/types/supabase"
@@ -30,9 +29,7 @@ export default async function RecipePage() {
     <div className="m-4">
       {recipes?.map((recipe) => (
         <div key={recipe.id}>
-          <Link href={`/dashboard/my-recipes/${recipe.id}`}>
-            <RecipeCard recipe={recipe as Recipe} />
-          </Link>
+          <RecipeCard recipe={recipe as Recipe} />
         </div>
       ))}
     </div>
