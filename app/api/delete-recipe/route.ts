@@ -2,7 +2,7 @@ import { revalidatePath } from "next/cache"
 import { NextResponse } from "next/server"
 import { auth } from "@clerk/nextjs"
 
-import supabaseClient from "@/lib/supabase-client"
+import { supabaseClient } from "@/lib/supabase-client"
 
 export async function POST(request: Request) {
   const { getToken, userId } = auth()
