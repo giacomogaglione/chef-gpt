@@ -95,11 +95,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             stepIndex="5"
             labelIndex="Do you have diet preference?"
           />
-          <SwitchFormField
-            form={form}
-            name="low_calori"
-            label="⚖️ Low-calori"
-          />
+          <SwitchFormField form={form} name="low_calori" label="⚖️ Low Cal" />
           <SwitchFormField form={form} name="vegan" label="🌿 Vegan" />
           <SwitchFormField form={form} name="paleo" label="🍖 Paleo" />
         </FormItem>

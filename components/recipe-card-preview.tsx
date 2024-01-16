@@ -1,11 +1,13 @@
 "use client"
 
+import { revalidatePath } from "next/cache"
 import Link from "next/link"
 import { Trash2Icon } from "lucide-react"
 
 import type { Database } from "@/types/supabase"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { toast } from "@/components/ui/use-toast"
 
 type Recipe = Database["public"]["Tables"]["recipes"]["Row"]
 
@@ -13,7 +15,7 @@ interface RecipeCardProps {
   recipe: Recipe
 }
 
-export function RecipeCard({ recipe }: RecipeCardProps) {
+export function RecipeCardPreview({ recipe }: RecipeCardProps) {
   const deleteRecipe = async (id: string) => {
     try {
       const response = await fetch("/api/delete-recipe", {
@@ -23,6 +25,11 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
         },
         body: JSON.stringify({ recipeId: id }),
       })
+      toast({
+        title: "Cool!",
+        description: "Recipe successfully deleted",
+      })
+      revalidatePath("/dashboard/my-recipes")
 
       if (!response.ok) {
         throw new Error("Failed to delete the recipe.")
@@ -36,7 +43,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
     <Card className="my-4">
       <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
         <div className="space-y-1">
-          <CardTitle>{recipe.title}</CardTitle>
+          <CardTitle className="line-clamp-1 text-lg">{recipe.title}</CardTitle>
         </div>
         <div className="flex justify-end">
           <Button

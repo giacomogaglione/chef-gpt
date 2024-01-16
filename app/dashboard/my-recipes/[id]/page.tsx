@@ -2,7 +2,7 @@ import { type Metadata } from "next"
 import { notFound } from "next/navigation"
 import { auth } from "@clerk/nextjs"
 
-import supabaseClient from "@/lib/supabase-client"
+import { supabaseClient } from "@/lib/supabase-client"
 import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
 
 export const metadata: Metadata = {
@@ -35,7 +35,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
   }
 
   return (
-    <div className="m-4">
+    <div className="m-8 w-full max-w-3xl">
       <GeneratedRecipeContent recipe={recipe} />
     </div>
   )

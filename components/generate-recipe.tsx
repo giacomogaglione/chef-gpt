@@ -5,6 +5,7 @@ import { useCompletion } from "ai/react"
 
 import { Recipe, defaultValues, type FormData } from "@/types/types"
 import { generatePrompt } from "@/lib/generate-prompt"
+import { saveGeneration } from "@/lib/save-generation"
 import { saveRecipe } from "@/lib/save-recipe"
 import { cn } from "@/lib/utils"
 import { ToastAction } from "@/components/ui/toast"
@@ -22,6 +23,7 @@ export function GenerateRecipe() {
     api: "/api/generate-recipe",
     onFinish: () => {
       setIsRecipeVisible(true)
+      saveGeneration(recipe)
     },
   })
 

@@ -3,8 +3,8 @@ import { revalidatePath } from "next/cache"
 import { auth } from "@clerk/nextjs"
 
 import type { Database } from "@/types/supabase"
-import supabaseClient from "@/lib/supabase-client"
-import { RecipeCard } from "@/components/recipe-card"
+import { supabaseClient } from "@/lib/supabase-client"
+import { RecipeCardPreview } from "@/components/recipe-card-preview"
 
 type Recipe = Database["public"]["Tables"]["recipes"]["Row"]
 
@@ -27,11 +27,13 @@ export default async function RecipePage() {
 
   return (
     <div className="m-4">
-      {recipes?.map((recipe) => (
-        <div key={recipe.id}>
-          <RecipeCard recipe={recipe as Recipe} />
-        </div>
-      ))}
+      <div className="grid gap-4 md:grid-cols-2">
+        {recipes?.map((recipe) => (
+          <div key={recipe.id}>
+            <RecipeCardPreview recipe={recipe as Recipe} />
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
