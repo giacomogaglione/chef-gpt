@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useCallback, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { useCompletion } from "ai/react"
 
 import { Recipe, defaultValues, type FormData } from "@/types/types"
@@ -23,9 +23,14 @@ export function GenerateRecipe() {
     api: "/api/generate-recipe",
     onFinish: () => {
       setIsRecipeVisible(true)
-      saveGeneration(recipe)
     },
   })
+
+  useEffect(() => {
+    if (recipe) {
+      saveGeneration(recipe)
+    }
+  }, [recipe])
 
   const onSubmit = useCallback(
     async (values: FormData, e: React.FormEvent) => {
