@@ -13,7 +13,7 @@ export async function POST(req: Request) {
 
   // Request the OpenAI API for the response based on the prompt
   const response = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
+    model: "gpt-3.5-turbo-1106",
     temperature: 0.4,
     top_p: 0.9,
     frequency_penalty: 0.2,
