@@ -30,9 +30,9 @@ export function SelectFormField({ form, name }: SelectFormFieldProps) {
               </SelectTrigger>
             </FormControl>
             <SelectContent>
-              <SelectItem value="easy">Novice</SelectItem>
-              <SelectItem value="intermediate">Intermediate</SelectItem>
-              <SelectItem value="expert">Expert</SelectItem>
+              <SelectItem value="Easy">Novice</SelectItem>
+              <SelectItem value="Intermediate">Intermediate</SelectItem>
+              <SelectItem value="Expert">Expert</SelectItem>
             </SelectContent>
           </Select>
         </FormItem>

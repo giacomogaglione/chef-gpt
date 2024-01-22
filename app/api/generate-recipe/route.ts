@@ -14,14 +14,17 @@ export async function POST(req: Request) {
   // Request the OpenAI API for the response based on the prompt
   const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo-1106",
-    temperature: 0.4,
-    top_p: 0.9,
+    temperature: 0.6,
     frequency_penalty: 0.2,
     presence_penalty: 0.3,
     max_tokens: 700,
     stream: true,
     n: 1,
-    messages: [{ role: "user", content: prompt }],
+    messages: [
+      { role: "user", content: prompt },
+      { role: "system", content: "You are an expert culinary chef" },
+    ],
+    response_format: { type: "json_object" },
   })
 
   const stream = OpenAIStream(response)

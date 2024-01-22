@@ -18,7 +18,7 @@ interface RecipePageProps {
 }
 
 export default async function RecipePage({ params }: RecipePageProps) {
-  const { getToken, userId } = auth()
+  const { getToken } = auth()
   const id = params.id
   const supabaseAccessToken = await getToken({ template: "chef-genie" })
   const supabase = await supabaseClient(supabaseAccessToken as string)

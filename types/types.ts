@@ -23,7 +23,7 @@ export const defaultValues: FormData = {
   ingredients: "",
   cooking_time: [15],
   people: "2",
-  difficulty: "easy",
+  difficulty: "Easy",
   low_calori: true,
   vegan: false,
   paleo: false,

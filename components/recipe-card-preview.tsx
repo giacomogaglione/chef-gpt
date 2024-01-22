@@ -29,7 +29,7 @@ export function RecipeCardPreview({ recipe }: RecipeCardProps) {
         title: "Cool!",
         description: "Recipe successfully deleted",
       })
-      revalidatePath("/dashboard/my-recipes")
+      // revalidatePath("/dashboard/my-recipes")
 
       if (!response.ok) {
         throw new Error("Failed to delete the recipe.")
@@ -43,7 +43,9 @@ export function RecipeCardPreview({ recipe }: RecipeCardProps) {
     <Card className="my-4">
       <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
         <div className="space-y-1">
-          <CardTitle className="line-clamp-1 text-lg">{recipe.title}</CardTitle>
+          <CardTitle className="line-clamp-1 text-lg">
+            {recipe?.title}
+          </CardTitle>
         </div>
         <div className="flex justify-end">
           <Button
@@ -59,11 +61,11 @@ export function RecipeCardPreview({ recipe }: RecipeCardProps) {
       <CardContent>
         <div className="mb-4 flex space-x-4 text-sm text-muted-foreground">
           <div className="flex items-center">
-            {"🕛 "} {recipe.cooking_time?.replaceAll(/[^0-9]/g, "")}{" "}
+            {"🕛 "} {recipe?.cooking_time?.replaceAll(/[^0-9]/g, "")}{" "}
             {" minutes"}
           </div>
-          <div className="flex items-center">👨‍🍳 {recipe.difficulty}</div>
-          <div>{new Date(recipe.created_at as string).toDateString()}</div>
+          <div className="flex items-center">👨‍🍳 {recipe?.difficulty}</div>
+          <div>{new Date(recipe?.created_at as string).toDateString()}</div>
         </div>
         <Link href={`/dashboard/my-recipes/${recipe.id}`}>
           <Button variant="outline" size="lg" className="w-full">

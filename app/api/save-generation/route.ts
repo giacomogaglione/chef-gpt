@@ -9,6 +9,10 @@ export async function POST(request: Request) {
 
   const data = {
     content_json: body.content,
+    title: body.content.title,
+    difficulty: body.content.difficulty,
+    cooking_time: body.content.cooking_time,
+    people: body.content.people,
   }
   const recipe = await supabase.from("generations").insert([data])
 

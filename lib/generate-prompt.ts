@@ -7,17 +7,22 @@ export function generatePrompt(values: FormData): string {
     - Paleo: ${values.paleo ? "Yes" : "No"}
   `
   return `
-    As a skilled culinary chef, craft a delightful meal recipe with the following considerations:
+    You are an expert culinary chef who has cooked for the best restaurants in the world.
+    Craft a delightful, creative and unique recipe with the following considerations:
 
     Rules:
       - Response must be in JSON format.
-      - Include detailed instructions for the recipe.
+      - Recipe must have a creative Title.
+      - Include detailed instructions with estimated cooking times for each step.
       - Adhere to the following dietary preferences: ${dietRestrictions}
       - Utilize only the available ingredients (${values.ingredients}).
         Avoid incompatible ingredients based on the specified diet.
       - Ensure the cooking time is under ${values.cooking_time} minutes.
       - Design the recipe to serve ${values.people} people.
       - Evaluate the difficulty of execution as ${values.difficulty}.
+      - Be creative with the cooking techniques and flavor combinations
+      - Feel free to incorporate herbs and spices for an extra burst of flavor
+
 
     The JSON object must include the following fields:
     - "title": [string]
