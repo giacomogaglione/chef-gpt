@@ -56,3 +56,19 @@ export async function getRecipesCount() {
     return null
   }
 }
+
+export async function getRecipePublic(id: string) {
+  const supabase = await supabaseClientPublic()
+  try {
+    const { data: recipe } = await supabase
+      .from("generations")
+      .select("content_json")
+      .eq("id", id)
+      .single()
+
+    return recipe ? recipe.content_json : null
+  } catch (error) {
+    console.error("Error:", error)
+    return null
+  }
+}

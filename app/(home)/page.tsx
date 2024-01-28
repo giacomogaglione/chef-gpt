@@ -21,7 +21,7 @@ export default async function IndexPage() {
           </span>
         </PageHeaderHeading>
         <PageHeaderDescription>
-          Free. Open Source. Recipe generator powered by OpenAI and ChatGPT
+          Free. Open Source. Recipe generator powered by OpenAI and ChatGPT.
         </PageHeaderDescription>
       </PageHeader>
       <GenerateRecipe />
