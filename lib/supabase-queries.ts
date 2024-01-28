@@ -48,8 +48,8 @@ export async function getRecipesCount() {
   try {
     const { count } = await supabase
       .from("generations")
-      .select('*', { count: "exact", head: true })
-      
+      .select("*", { count: "exact", head: true })
+
     return count
   } catch (error) {
     console.error("Error:", error)

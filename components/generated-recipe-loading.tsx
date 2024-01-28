@@ -20,10 +20,10 @@ export function GeneratedRecipeLoading() {
         {/* Ingredients Section */}
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">Ingredients</h3>
-          <Skeleton className="h-3 w-1/5" />
-          <Skeleton className="h-3 w-1/4" />
-          <Skeleton className="h-3 w-1/5" />
-          <Skeleton className="h-3 w-1/4" />
+          <Skeleton className="skeleton h-3 w-1/5" />
+          <Skeleton className="skeleton h-3 w-1/4" />
+          <Skeleton className="skeleton h-3 w-1/5" />
+          <Skeleton className="skeleton h-3 w-1/4" />
         </div>
         {/* Instructions Info Section */}
         <div className="space-y-2">

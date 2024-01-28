@@ -7,9 +7,7 @@ interface RecipesLayoutProps {
   children: React.ReactNode
 }
 
-export default async function RecipesLayout({
-  children,
-}: RecipesLayoutProps) {
+export default async function RecipesLayout({ children }: RecipesLayoutProps) {
   const user = await currentUser()
 
   return (

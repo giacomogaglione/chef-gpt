@@ -18,9 +18,9 @@ export function RecipeCardPreview({ recipe }: RecipeCardProps) {
   const isPaleo = recipe?.paleo === "Yes"
 
   return (
-    <Link href={`/dashboard/my-recipes/${recipe.id}`}>
-      <Card className="my-4">
-        <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
+    <Link href={`/recipes/${recipe.id}`}>
+      <Card className="my-4 hover:shadow-lg">
+        <CardHeader className="grid items-start gap-4 space-y-0">
           <div className="space-y-1">
             <CardTitle className="line-clamp-1 text-lg">
               {recipe?.title}

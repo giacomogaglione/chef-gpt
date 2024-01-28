@@ -20,7 +20,7 @@ export const formSchema = z.object({
 })
 
 export const defaultValues: FormData = {
-  ingredients: "Broccoli, Potatoes, Rice",
+  ingredients: "",
   cooking_time: [15],
   people: "2",
   difficulty: "Easy",

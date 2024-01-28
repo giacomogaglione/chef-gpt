@@ -8,8 +8,8 @@ interface CountDisplayProps {
 
 function CountDisplay({ count }: CountDisplayProps) {
   return (
-    <p className="duration-1200 mb-12 ease-in-out animate-in fade-in slide-in-from-bottom-4">
-      {count || "–––"} emojis generated and counting!
+    <p className="duration-1200 inline-flex items-center rounded-lg bg-muted px-3 py-1 text-center text-sm font-medium ease-in-out animate-in fade-in slide-in-from-bottom-4">
+      🎉 {count || "–––"} recipes generated and counting!
     </p>
   )
 }
@@ -20,7 +20,7 @@ async function AsyncRecipesCount() {
   return <CountDisplay count={count} />
 }
 
-export function RecipesCount() {
+export function RecipesCounter() {
   return (
     <Suspense fallback={<CountDisplay />}>
       <AsyncRecipesCount />

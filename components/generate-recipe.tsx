@@ -77,7 +77,7 @@ export function GenerateRecipe() {
   }
 
   return (
-    <div className="max-w-5xl">
+    <div className="pb-24">
       <div
         className={cn("mx-auto space-y-6 md:space-x-6 md:space-y-0", {
           "md:flex": isLoading || isRecipeVisible,

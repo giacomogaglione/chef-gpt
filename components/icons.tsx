@@ -1,6 +1,7 @@
 import {
   Activity,
   ChefHat,
+  CornerDownLeft,
   Flame,
   Heart,
   Loader2,
@@ -8,6 +9,7 @@ import {
   Moon,
   SendHorizontal,
   Settings,
+  Soup,
   Star,
   SunMedium,
   Terminal,
@@ -15,7 +17,6 @@ import {
   Twitter,
   User,
   Users,
-  Soup,
   type LucideIcon,
   type LucideProps,
 } from "lucide-react"
@@ -40,6 +41,7 @@ export const Icons = {
   people: Users,
   difficulty: Star,
   logo: Soup,
+  input: CornerDownLeft,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

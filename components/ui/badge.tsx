@@ -15,8 +15,10 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
         outline: "text-foreground",
-        vegan: "border-transparent bg-vegan text-secondary-foreground hover:bg-vegan/80",
-        paleo: "border-transparent bg-paleo text-secondary-foreground hover:bg-paleo/80",
+        vegan:
+          "border-transparent bg-vegan text-secondary-foreground hover:bg-vegan/80",
+        paleo:
+          "border-transparent bg-paleo text-secondary-foreground hover:bg-paleo/80",
       },
     },
     defaultVariants: {
