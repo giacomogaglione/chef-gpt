@@ -17,7 +17,7 @@ export async function getLatestRecipes() {
     const { data: recipes } = await supabase
       .from("generations")
       .select()
-      .range(0, 6)
+      .range(0, 2)
       .order("created_at", { ascending: false })
 
     return recipes
@@ -37,6 +37,20 @@ export async function getRecipe(id: string) {
       .single()
 
     return recipe
+  } catch (error) {
+    console.error("Error:", error)
+    return null
+  }
+}
+
+export async function getRecipesCount() {
+  const supabase = await supabaseClientPublic()
+  try {
+    const { count } = await supabase
+      .from("generations")
+      .select('*', { count: "exact", head: true })
+      
+    return count
   } catch (error) {
     console.error("Error:", error)
     return null

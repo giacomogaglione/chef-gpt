@@ -6,7 +6,7 @@ export default function IndexPage() {
       <div className="flex max-w-5xl flex-col gap-2 text-center">
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl">
           Say goodbye to mealtime indecision with
-          <span className="bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-violet-500 to-teal-300 bg-clip-text text-transparent">
             {" Chef Genie"}
           </span>
         </h1>

@@ -1,6 +1,6 @@
 import { getLatestRecipes } from "@/lib/supabase-queries"
 import { GenerateRecipe } from "@/components/generate-recipe"
-import { RecipeCardPreview } from "@/components/recipe-card-preview"
+import { RecipeCardPreview } from "@/components/my-recipe-card-preview"
 
 export default async function IndexPage() {
   const [recipes] = await Promise.all([getLatestRecipes()])

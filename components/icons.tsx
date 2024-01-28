@@ -15,6 +15,7 @@ import {
   Twitter,
   User,
   Users,
+  Soup,
   type LucideIcon,
   type LucideProps,
 } from "lucide-react"
@@ -25,7 +26,7 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   twitter: Twitter,
-  logo: ChefHat,
+  chef: ChefHat,
   user: User,
   terminal: Terminal,
   settings: Settings,
@@ -38,6 +39,7 @@ export const Icons = {
   calories: Flame,
   people: Users,
   difficulty: Star,
+  logo: Soup,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

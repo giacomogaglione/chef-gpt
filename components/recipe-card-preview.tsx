@@ -1,82 +1,50 @@
 "use client"
 
-import { revalidatePath } from "next/cache"
 import Link from "next/link"
-import { Trash2Icon } from "lucide-react"
 
 import type { Database } from "@/types/supabase"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { toast } from "@/components/ui/use-toast"
+import { Icons } from "@/components/icons"
 
-type Recipe = Database["public"]["Tables"]["recipes"]["Row"]
+type Recipe = Database["public"]["Tables"]["generations"]["Row"]
 
 interface RecipeCardProps {
   recipe: Recipe
 }
 
 export function RecipeCardPreview({ recipe }: RecipeCardProps) {
-  const deleteRecipe = async (id: string) => {
-    try {
-      const response = await fetch("/api/delete-recipe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ recipeId: id }),
-      })
-      toast({
-        title: "Cool!",
-        description: "Recipe successfully deleted",
-      })
-      // revalidatePath("/dashboard/my-recipes")
-
-      if (!response.ok) {
-        throw new Error("Failed to delete the recipe.")
-      }
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  const isVegan = recipe?.vegan === "Yes"
+  const isPaleo = recipe?.paleo === "Yes"
 
   return (
-    <Card className="my-4">
-      <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
-        <div className="space-y-1">
-          <CardTitle className="line-clamp-1 text-lg">
-            {recipe?.title}
-          </CardTitle>
-        </div>
-        <div className="flex justify-end">
-          <Button
-            variant="destructive"
-            size="icon"
-            className="h-8"
-            onClick={() => deleteRecipe(recipe.id)}
-          >
-            <Trash2Icon className="h-4 w-4" />
-          </Button>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <div className="mb-4 flex space-x-4 text-sm text-muted-foreground">
-          <div className="flex items-center">
-            {"🕛 "} {recipe?.cooking_time?.replaceAll(/[^0-9]/g, "")}{" "}
-            {" minutes"}
+    <Link href={`/dashboard/my-recipes/${recipe.id}`}>
+      <Card className="my-4">
+        <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
+          <div className="space-y-1">
+            <CardTitle className="line-clamp-1 text-lg">
+              {recipe?.title}
+            </CardTitle>
           </div>
-          <div className="flex items-center">👨‍🍳 {recipe?.difficulty}</div>
-          <div>{new Date(recipe?.created_at as string).toDateString()}</div>
-        </div>
-        <Link href={`/dashboard/my-recipes/${recipe.id}`}>
-          <Button variant="outline" size="lg" className="w-full">
-            Details
-          </Button>
-        </Link>
-      </CardContent>
-    </Card>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-4 items-center space-y-2 text-sm text-muted-foreground">
+            <p className="flex">
+              <Icons.cooking_time className="mr-2 h-4 w-4" aria-hidden="true" />
+              {recipe?.cooking_time?.replaceAll(/[^0-9]/g, "")} minutes
+            </p>
+            <p className="flex">
+              <Icons.people className="mr-2 h-4 w-4" aria-hidden="true" />
+              {recipe?.people} servings
+            </p>
+          </div>
+          <div className="mt-4 flex space-x-2">
+            <Badge variant="secondary">{recipe?.difficulty}</Badge>
+            {isVegan && <Badge variant="vegan">Vegan</Badge>}
+            {isPaleo && <Badge variant="paleo">Paleo</Badge>}
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
   )
-}
-
-export type DeleteTodoBody = {
-  id: string
 }

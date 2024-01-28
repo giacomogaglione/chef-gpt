@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs"
 
 import type { Database } from "@/types/supabase"
 import { getRecipesByUserId } from "@/lib/supabase-queries"
-import { RecipeCardPreview } from "@/components/recipe-card-preview"
+import { MyRecipeCardPreview } from "@/components/my-recipe-card-preview"
 
 type Recipe = Database["public"]["Tables"]["recipes"]["Row"]
 
@@ -23,7 +23,7 @@ export default async function RecipePage() {
       <div className="grid gap-4 md:grid-cols-2">
         {recipes?.map((recipe) => (
           <div key={recipe.id}>
-            <RecipeCardPreview recipe={recipe as Recipe} />
+            <MyRecipeCardPreview recipe={recipe as Recipe} />
           </div>
         ))}
       </div>
