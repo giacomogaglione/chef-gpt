@@ -13,6 +13,9 @@ export async function POST(request: Request) {
     difficulty: body.content.difficulty,
     cooking_time: body.content.cooking_time,
     people: body.content.people,
+    low_calories: body.content.low_calori,
+    vegan: body.content.vegan,
+    paleo: body.content.paleo,
   }
   const recipe = await supabase.from("generations").insert([data])
 
