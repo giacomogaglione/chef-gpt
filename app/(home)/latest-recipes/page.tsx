@@ -1,6 +1,6 @@
 import { getLatestRecipes } from "@/lib/supabase-queries"
 import { GenerateRecipe } from "@/components/generate-recipe"
-import { RecipeCardPreview } from "@/components/my-recipe-card-preview"
+import { MyRecipeCardPreview } from "@/components/my-recipe-card-preview"
 
 export default async function IndexPage() {
   const [recipes] = await Promise.all([getLatestRecipes()])
@@ -23,7 +23,7 @@ export default async function IndexPage() {
         <div className="grid gap-4 md:grid-cols-2">
           {recipes?.map((recipe) => (
             <div key={recipe.id}>
-              <RecipeCardPreview recipe={recipe} />
+              <MyRecipeCardPreview recipe={recipe} />
             </div>
           ))}
         </div>
