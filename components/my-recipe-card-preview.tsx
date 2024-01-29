@@ -65,9 +65,9 @@ export function MyRecipeCardPreview({ recipe }: RecipeCardProps) {
             <div>{new Date(recipe?.created_at as string).toDateString()}</div>
           </div>
         </div>
-        <Link href={`/recipes/${recipe.id}`}>
+        <Link href={`/dashboard/my-recipes/${recipe.id}`}>
           <Button variant="outline" size="lg" className="w-full">
-            Details
+            View Recipe
           </Button>
         </Link>
       </CardContent>

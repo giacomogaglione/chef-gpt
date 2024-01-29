@@ -33,6 +33,7 @@ export type FormData = z.infer<typeof formSchema>
 
 export interface Recipe {
   title: string
+  description: string
   cooking_time: number
   calories: number
   difficulty: string

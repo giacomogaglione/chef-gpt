@@ -6,6 +6,7 @@ import { Recipe } from "@/types/types"
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -31,6 +32,7 @@ export function GeneratedRecipeContent({
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-xl font-bold">{recipe?.title}</CardTitle>
+        <CardDescription>{recipe?.description}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4 text-sm">
         <div className="grid space-y-6 rounded-lg border p-3 md:grid-cols-2 md:space-x-4 md:space-y-0">
