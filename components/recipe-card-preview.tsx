@@ -37,9 +37,9 @@ export function RecipeCardPreview({ recipe }: RecipeCardProps) {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="mt-4 flex space-x-2">
+          <div className="flex space-x-2">
+            <Badge>{recipe?.difficulty}</Badge>
             <Badge variant="secondary">🕓 {cookingTime} min</Badge>
-            <Badge variant="secondary">{recipe?.difficulty}</Badge>
             {isVegan && <Badge variant="vegan">Vegan</Badge>}
             {isPaleo && <Badge variant="paleo">Paleo</Badge>}
           </div>

@@ -58,7 +58,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
                     placeholder="Broccoli, Potatoes, Rice"
                     {...field}
                     onClick={() => setShowAdditionalFields(true)}
-                    className="rounded-xl bg-primary text-secondary shadow-lg placeholder:text-muted-foreground"
+                    className="rounded-xl bg-primary text-secondary shadow-lg placeholder:text-secondary/70"
                   />
                   <Icons.input className="absolute right-2.5 top-3 h-4 w-4 text-secondary" />
                 </div>
