@@ -1,7 +1,7 @@
 import { type Metadata } from "next"
 import { auth } from "@clerk/nextjs"
 
-import type { Database } from "@/types/supabase"
+import type { Tables } from "@/types/supabase"
 import { getRecipesByUserId } from "@/lib/supabase-queries"
 import { MyRecipeCardPreview } from "@/components/my-recipe-card-preview"
 import {
@@ -10,7 +10,7 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header"
 
-type Recipe = Database["public"]["Tables"]["recipes"]["Row"]
+type Recipe = Tables<"recipes">
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chef-genie.app"),

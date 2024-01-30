@@ -9,7 +9,7 @@ This project is still in development and is not ready for production use.
 
 ## Features
 
-- **Framework**: [Next.js](https://nextjs.org/) 13 `/app` dir 
+- **Framework**: [Next.js](https://nextjs.org/) 14 `/app` dir 
 - **AI**: [OpenAI - GPT 3.5 Turbo](https://openai.com)
 - **Database**: [Supabase](https://supabase.com/)
 - **Authentication**: [Clerk](https://clerk.com/)

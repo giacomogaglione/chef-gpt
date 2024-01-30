@@ -3,12 +3,12 @@
 import Link from "next/link"
 import { Trash2Icon } from "lucide-react"
 
-import type { Database } from "@/types/supabase"
+import type { Tables } from "@/types/supabase"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { toast } from "@/components/ui/use-toast"
 
-type Recipe = Database["public"]["Tables"]["recipes"]["Row"]
+type Recipe = Tables<"recipes">
 
 interface RecipeCardProps {
   recipe: Recipe

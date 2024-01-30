@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-import type { Database } from "@/types/supabase"
+import type { Tables } from "@/types/supabase"
 import { Badge } from "@/components/ui/badge"
 import {
   Card,
@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-type Recipe = Database["public"]["Tables"]["generations"]["Row"]
+type Recipe = Tables<"generations">
 
 interface RecipeCardProps {
   recipe: Recipe
