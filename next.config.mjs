@@ -1,10 +1,12 @@
-import million from 'million/compiler';
+import million from "million/compiler"
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
 }
 
-export default million.next(
-  nextConfig
-, { auto: { rsc: true } }
-)
+const millionConfig = {
+  auto: { rsc: true },
+}
+
+export default million.next(nextConfig, millionConfig)
