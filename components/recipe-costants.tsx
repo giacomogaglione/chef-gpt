@@ -8,22 +8,22 @@ export const macroInfo = [
 
 export const recipeInfo = [
   {
-    icon: <Icons.cooking_time className="h-4 w-4" aria-hidden="true" />,
+    icon: <Icons.cooking_time className="size-4" aria-hidden="true" />,
     value: "cooking_time",
     additionalText: "minutes",
   },
   {
-    icon: <Icons.difficulty className="h-4 w-4" aria-hidden="true" />,
+    icon: <Icons.difficulty className="size-4" aria-hidden="true" />,
     value: "difficulty",
     additionalText: "",
   },
   {
-    icon: <Icons.people className="h-4 w-4" aria-hidden="true" />,
+    icon: <Icons.people className="size-4" aria-hidden="true" />,
     value: "people",
     additionalText: "servings",
   },
   {
-    icon: <Icons.calories className="h-4 w-4" aria-hidden="true" />,
+    icon: <Icons.calories className="size-4" aria-hidden="true" />,
     value: "calories",
     additionalText: "calories",
   },

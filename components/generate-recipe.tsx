@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useState } from "react"
 import { useCompletion } from "ai/react"
 
-import { Recipe, defaultValues, type FormData } from "@/types/types"
+import { defaultValues, Recipe, type FormData } from "@/types/types"
 import { generatePrompt } from "@/lib/generate-prompt"
 import { saveGeneration } from "@/lib/save-generation"
 import { saveRecipe } from "@/lib/save-recipe"

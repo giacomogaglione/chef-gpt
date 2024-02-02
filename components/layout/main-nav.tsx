@@ -17,7 +17,7 @@ export function MainNav({ items }: MainNavProps) {
         aria-label="Chef Genie Homepage"
         className="items-center space-x-2 md:flex"
       >
-        <Icons.logo className="h-5 w-5 md:h-6 md:w-6" />
+        <Icons.logo className="size-5 md:size-6" />
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
         </span>

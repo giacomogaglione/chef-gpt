@@ -18,8 +18,8 @@ import { Input } from "@/components/ui/input"
 import { Slider, SliderThumb } from "@/components/ui/slider"
 import { RecipeFormLabel } from "@/components/form/label-form-field"
 import {
-  RadioGroupFormField,
   options,
+  RadioGroupFormField,
 } from "@/components/form/radio-group-form-field"
 import { SelectFormField } from "@/components/form/select-form-field"
 import { SwitchFormField } from "@/components/form/switch-form-field"
@@ -60,7 +60,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
                     onClick={() => setShowAdditionalFields(true)}
                     className="rounded-xl bg-primary text-secondary shadow-lg placeholder:text-secondary/70"
                   />
-                  <Icons.input className="absolute right-2.5 top-3 h-4 w-4 text-secondary" />
+                  <Icons.input className="absolute right-2.5 top-3 size-4 text-secondary" />
                 </div>
               </FormControl>
               <FormMessage />
@@ -129,7 +129,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             {isLoading ? (
               <Button disabled size="lg" className="w-full font-semibold">
                 <Icons.loader
-                  className="mr-2 h-4 w-4 animate-spin"
+                  className="mr-2 size-4 animate-spin"
                   aria-hidden="true"
                 />
                 Generating recipe
@@ -137,7 +137,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             ) : (
               <Button type="submit" size="lg" className="w-full font-semibold">
                 Generate recipe
-                <Icons.generate className="ml-2 h-4 w-4" aria-hidden="true" />
+                <Icons.generate className="ml-2 size-4" aria-hidden="true" />
               </Button>
             )}{" "}
           </>

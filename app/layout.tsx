@@ -1,4 +1,5 @@
 import "@/styles/globals.css"
+
 import { Metadata, Viewport } from "next"
 import { ClerkProvider } from "@clerk/nextjs"
 import { Analytics } from "@vercel/analytics/react"

@@ -10,7 +10,7 @@ interface SaveButtonProps {
 export function SaveRecipeButton({ onClick }: SaveButtonProps) {
   return (
     <Button variant="outline" size="lg" className="w-full" onClick={onClick}>
-      <Icons.heart className="mr-2 h-4 w-4" aria-hidden="true" />
+      <Icons.heart className="mr-2 size-4" aria-hidden="true" />
       Save
     </Button>
   )

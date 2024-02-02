@@ -39,9 +39,9 @@ export function SiteHeader({ user }: SiteHeaderProps) {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="relative h-7 w-7 rounded-full"
+                    className="relative size-7 rounded-full"
                   >
-                    <Avatar className="h-7 w-7">
+                    <Avatar className="size-7">
                       <AvatarImage
                         src={user.imageUrl}
                         alt={user.username ?? ""}
@@ -63,7 +63,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
                     <DropdownMenuItem asChild>
                       <Link href="/dashboard/account">
                         <Icons.user
-                          className="mr-2 h-4 w-4"
+                          className="mr-2 size-4"
                           aria-hidden="true"
                         />
                         Account
@@ -73,7 +73,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
                     <DropdownMenuItem asChild>
                       <Link href="/dashboard/my-recipes">
                         <Icons.terminal
-                          className="mr-2 h-4 w-4"
+                          className="mr-2 size-4"
                           aria-hidden="true"
                         />
                         My Recipes
@@ -83,7 +83,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Icons.logout className="mr-2 h-4 w-4" aria-hidden="true" />
+                    <Icons.logout className="mr-2 size-4" aria-hidden="true" />
                     <SignOutButton />
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                   </DropdownMenuItem>
@@ -110,7 +110,7 @@ export function SiteHeader({ user }: SiteHeaderProps) {
                   className: "md:ml-3",
                 })}
               >
-                <Icons.gitHub className="h-4 w-4 md:h-5 md:w-5" />
+                <Icons.gitHub className="size-4 md:size-5" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
