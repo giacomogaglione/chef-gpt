@@ -1,7 +1,7 @@
 import { type Metadata } from "next"
 import { auth } from "@clerk/nextjs"
 
-import type { Tables } from "@/types/supabase"
+import type { Tables } from "@/types/database.types"
 import { getRecipesByUserId } from "@/lib/supabase-queries"
 import { MyRecipeCardPreview } from "@/components/my-recipe-card-preview"
 import {

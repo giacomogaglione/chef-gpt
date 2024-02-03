@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-import type { Tables } from "@/types/supabase"
+import type { Tables } from "@/types/database.types"
 import { Badge } from "@/components/ui/badge"
 import {
   Card,

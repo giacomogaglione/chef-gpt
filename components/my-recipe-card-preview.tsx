@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Trash2Icon } from "lucide-react"
 
-import type { Tables } from "@/types/supabase"
+import type { Tables } from "@/types/database.types"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { toast } from "@/components/ui/use-toast"
