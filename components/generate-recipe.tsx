@@ -98,10 +98,7 @@ export function GenerateRecipe() {
         >
           <div className="md:flex">
             {!isLoading && recipe && (
-              <RecipeCard
-                recipe={recipe}
-                saveRecipe={onSaveRecipe}
-              />
+              <RecipeCard recipe={recipe} saveRecipe={onSaveRecipe} />
             )}
             {isLoading && <RecipeCardSkeleton />}
           </div>

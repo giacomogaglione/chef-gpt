@@ -2,8 +2,8 @@ import { type Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { getRecipePublic } from "@/lib/supabase-queries"
-import { RecipeCard } from "@/components/recipe/recipe-card"
 import { PageHeader, PageHeaderHeading } from "@/components/layout/page-header"
+import { RecipeCard } from "@/components/recipe/recipe-card"
 
 interface RecipePageProps {
   params: {

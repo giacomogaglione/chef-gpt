@@ -14,10 +14,10 @@ import {
   SunMedium,
   Terminal,
   Timer,
+  Trash2,
   Twitter,
   User,
   Users,
-  Trash2,
   type LucideIcon,
   type LucideProps,
 } from "lucide-react"

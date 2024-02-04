@@ -3,8 +3,8 @@ import { notFound } from "next/navigation"
 import { auth } from "@clerk/nextjs"
 
 import { supabaseClient } from "@/lib/supabase-client"
-import { RecipeCard } from "@/components/recipe/recipe-card"
 import { PageHeader, PageHeaderHeading } from "@/components/layout/page-header"
+import { RecipeCard } from "@/components/recipe/recipe-card"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chef-genie.app"),
