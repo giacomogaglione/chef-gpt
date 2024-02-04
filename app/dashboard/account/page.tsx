@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-import { UserProfile } from "@/components/user-profile"
+import { UserProfile } from "@/components/dashboard/user-profile"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chef-genie.app"),

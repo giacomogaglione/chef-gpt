@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
 interface DeleteButtonProps {
-  onClick: () => void
+  onClick: any
 }
 
 export function DeleteRecipeButton({ onClick }: DeleteButtonProps) {
