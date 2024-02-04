@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { macroInfo, recipeInfo } from "@/components/recipe/recipe-constants"
-import { SaveRecipeButton } from "@/components/save-recipe-button"
+import { SaveRecipeButton } from "@/components/recipe/save-recipe-button"
 
 interface GeneratedRecipeContentProps {
   recipe: Recipe

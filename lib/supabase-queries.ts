@@ -72,3 +72,19 @@ export async function getRecipePublic(id: string) {
     return null
   }
 }
+
+export async function getRecipePrivate(id: string, supabaseAccessToken) {
+  const supabase = await supabaseClient(supabaseAccessToken as string)
+  try {
+    const { data: recipe } = await supabase
+      .from("recipes")
+      .select("content_json")
+      .eq("id", id)
+      .single()
+
+    return recipe ? recipe.content_json : null
+  } catch (error) {
+    console.error("Error:", error)
+    return null
+  }
+}

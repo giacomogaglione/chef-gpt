@@ -2,7 +2,7 @@ import { type Metadata } from "next"
 import { notFound } from "next/navigation"
 import { auth } from "@clerk/nextjs"
 
-import { supabaseClient } from "@/lib/supabase-client"
+import { getRecipePrivate } from "@/lib/supabase-queries"
 import { PageHeader, PageHeaderHeading } from "@/components/layout/page-header"
 import { RecipeCard } from "@/components/recipe/recipe-card"
 
@@ -22,14 +22,9 @@ export default async function RecipePage({ params }: RecipePageProps) {
   const { getToken } = auth()
   const id = params.id
   const supabaseAccessToken = await getToken({ template: "chef-genie" })
-  const supabase = await supabaseClient(supabaseAccessToken as string)
-  const { data } = await supabase
-    .from("recipes")
-    .select("content_json")
-    .eq("id", id)
-    .single()
-
-  const recipe = data ? data.content_json : null
+  const [recipe] = await Promise.all([
+    getRecipePrivate(id, supabaseAccessToken),
+  ])
 
   if (!recipe) {
     notFound()

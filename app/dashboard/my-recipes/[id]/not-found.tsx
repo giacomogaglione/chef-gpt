@@ -1,4 +1,4 @@
-import { ErrorCard } from "@/components/error-card"
+import { ErrorCard } from "@/components/layout/error-card"
 
 export default function RecipeNotFound() {
   return (
