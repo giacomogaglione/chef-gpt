@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { auth } from "@clerk/nextjs"
 
 import { getRecipePrivate } from "@/lib/supabase-queries"
-import { PageHeader, PageHeaderHeading } from "@/components/layout/page-header"
+import { PageHeader, PageHeaderHeading, PageHeaderDescription} from "@/components/layout/page-header"
 import { RecipeCard } from "@/components/recipe/recipe-card"
 
 export const metadata: Metadata = {
@@ -34,6 +34,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
     <div className="container grid">
       <PageHeader>
         <PageHeaderHeading>{recipe.title}</PageHeaderHeading>
+        <PageHeaderDescription>{recipe.description}</PageHeaderDescription>
       </PageHeader>
       <div className="mx-auto w-full max-w-3xl">
         <RecipeCard recipe={recipe} />

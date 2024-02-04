@@ -15,10 +15,12 @@ export function RecipeCardSkeleton() {
   return (
     <Card className="w-full animate-pulse">
       <CardHeader>
-        <CardTitle className="animate-pulse text-xl font-bold">
-          Generating Recipe
+        <CardTitle className="text-xl font-bold">
+          Your Recipe in the Making!
         </CardTitle>
-        <CardDescription>This may take a little time...</CardDescription>
+        <CardDescription>
+          Get ready for a pixel-perfect culinary experience! ✨
+        </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4 text-sm text-muted-foreground">
         <div className="grid space-y-6 rounded-lg border p-3 md:grid-cols-2 md:space-x-4 md:space-y-0">
@@ -67,7 +69,7 @@ export function RecipeCardSkeleton() {
         <Button variant="outline" size="lg" className="w-full">
           <Icons.save className="mr-2 size-4" aria-hidden="true" />
           Save
-        </Button>{" "}
+        </Button>
       </CardFooter>
     </Card>
   )

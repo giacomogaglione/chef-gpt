@@ -3,9 +3,7 @@
 import Link from "next/link"
 import { ColumnDef } from "@tanstack/react-table"
 import { MoreHorizontal } from "lucide-react"
-/*
-import { deleteRecipe } from "@/lib/delete-recipe"
-*/
+
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
@@ -15,11 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-
-import { DataTableColumnHeader } from "./data-table-column-header"
-/*
-import { DeleteRecipeButton } from "../recipe/delete-recipe-button"
-*/
+import { DataTableColumnHeader } from "@/components/dashboard/data-table-column-header"
 
 export interface RecipeTable {
   id: string
@@ -89,11 +83,13 @@ export const columns: ColumnDef<RecipeTable>[] = [
             <DropdownMenuItem>
               <Link href={`/dashboard/my-recipes/${recipe.id}`}>View</Link>
             </DropdownMenuItem>
-            { /* 
+
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <DeleteRecipeButton onClick={deleteRecipe(recipe.id)} />
-            </DropdownMenuItem>*/}
+              <Button variant="destructive" size="xs">
+                Delete
+              </Button>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )

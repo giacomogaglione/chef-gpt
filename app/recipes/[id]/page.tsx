@@ -2,7 +2,11 @@ import { type Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { getRecipePublic } from "@/lib/supabase-queries"
-import { PageHeader, PageHeaderHeading } from "@/components/layout/page-header"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/layout/page-header"
 import { RecipeCard } from "@/components/recipe/recipe-card"
 
 interface RecipePageProps {
@@ -40,6 +44,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
     <div className="container grid">
       <PageHeader>
         <PageHeaderHeading>{recipe.title}</PageHeaderHeading>
+        <PageHeaderDescription>{recipe.description}</PageHeaderDescription>
       </PageHeader>
       <div className="mx-auto w-full max-w-3xl">
         <RecipeCard recipe={recipe} />

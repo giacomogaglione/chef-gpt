@@ -17,8 +17,9 @@ type Recipe = Tables<"recipes">
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chef-genie.app"),
-  title: "My Recipes",
-  description: "Manage your recipes",
+  title: "Your Culinary Creations",
+  description:
+    "Explore your saved recipes in one place. Your culinary journey starts here!",
 }
 
 async function getRecipesPrivate(): Promise<RecipeTable[] | null> {
@@ -32,7 +33,7 @@ async function getRecipesPrivate(): Promise<RecipeTable[] | null> {
       .eq("user_id", userId)
       .order("created_at", { ascending: false })
 
-    return recipes || null // Ensure that it returns null in case recipes is falsy
+    return recipes || null
   } catch (error) {
     console.error("Error:", error)
     return null
@@ -48,9 +49,10 @@ export default async function RecipePage() {
   return (
     <div>
       <PageHeader>
-        <PageHeaderHeading>My Recipes</PageHeaderHeading>
+        <PageHeaderHeading>Your Culinary Creations</PageHeaderHeading>
         <PageHeaderDescription>
-          Manage your recipes history.
+          Explore your saved recipes in one place. Your culinary journey starts
+          here!
         </PageHeaderDescription>
       </PageHeader>
       {data && (
@@ -59,7 +61,7 @@ export default async function RecipePage() {
         </div>
       )}
       <div className="m-4">
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-3">
           {recipes?.map((recipe) => (
             <div key={recipe.id}>
               <RecipeCardPreview recipe={recipe as Recipe} isPrivate />

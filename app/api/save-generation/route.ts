@@ -17,6 +17,10 @@ export async function POST(request: Request) {
     vegan: body.content.vegan,
     paleo: body.content.paleo,
     description: body.content.description,
+    calories: body.content.calories,
+    proteins: body.content.macros.protein,
+    fats: body.content.macros.fats,
+    carbs: body.content.macros.carbs,
   }
   const recipe = await supabase.from("generations").insert([data])
 
