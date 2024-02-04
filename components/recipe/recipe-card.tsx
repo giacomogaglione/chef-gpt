@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { macroInfo, recipeInfo } from "@/components/recipe-costants"
+import { macroInfo, recipeInfo } from "@/components/recipe/recipe-constants"
 import { SaveRecipeButton } from "@/components/save-recipe-button"
 
 interface GeneratedRecipeContentProps {
@@ -19,7 +19,7 @@ interface GeneratedRecipeContentProps {
   saveRecipe?: () => void
 }
 
-export function GeneratedRecipeContent({
+export function RecipeCard({
   recipe,
   saveRecipe,
 }: GeneratedRecipeContentProps) {

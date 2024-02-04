@@ -1,5 +1,5 @@
 import { getLatestRecipes } from "@/lib/supabase-queries"
-import { RecipeCardPreview } from "@/components/recipe-card-preview"
+import { RecipeCardPreview } from "@/components/recipe/recipe-card-preview"
 
 export async function RecentRecipes() {
   const [recipes] = await Promise.all([getLatestRecipes()])

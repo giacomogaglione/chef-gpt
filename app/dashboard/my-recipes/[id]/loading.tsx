@@ -1,9 +1,9 @@
-import { GeneratedRecipeLoading } from "@/components/generated-recipe-loading"
+import { RecipeCardSkeleton } from "@/components/recipe/recipe-card-skeleton"
 
 export default function RecipeLoading() {
   return (
     <div className="m-8 w-full max-w-5xl">
-      <GeneratedRecipeLoading />
+      <RecipeCardSkeleton />
     </div>
   )
 }

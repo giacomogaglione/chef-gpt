@@ -17,6 +17,7 @@ import {
   Twitter,
   User,
   Users,
+  Trash2,
   type LucideIcon,
   type LucideProps,
 } from "lucide-react"
@@ -34,7 +35,7 @@ export const Icons = {
   logout: LogOut,
   spinner: Activity,
   generate: SendHorizontal,
-  heart: Heart,
+  save: Heart,
   loader: Loader2,
   cooking_time: Timer,
   calories: Flame,
@@ -42,6 +43,7 @@ export const Icons = {
   difficulty: Star,
   logo: Soup,
   input: CornerDownLeft,
+  delete: Trash2,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

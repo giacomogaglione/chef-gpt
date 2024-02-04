@@ -5,7 +5,7 @@ import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from "@/components/page-header"
+} from "@/components/layout/page-header"
 import { RecentRecipes } from "@/components/recent-recipes"
 import { RecipesCounter } from "@/components/recipes-counter"
 

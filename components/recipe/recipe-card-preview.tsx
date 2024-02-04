@@ -3,6 +3,7 @@
 import Link from "next/link"
 
 import type { Tables } from "@/types/database.types"
+import { deleteRecipe } from "@/lib/delete-recipe"
 import { Badge } from "@/components/ui/badge"
 import {
   Card,
@@ -11,14 +12,31 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { toast } from "@/components/ui/use-toast"
+import { DeleteRecipeButton } from "@/components/recipe/delete-recipe-button"
 
-type Recipe = Tables<"generations">
+type Recipe = Tables<"recipes">
 
 interface RecipeCardProps {
   recipe: Recipe
+  isDeletable?: boolean
 }
 
-export function RecipeCardPreview({ recipe }: RecipeCardProps) {
+const handleDeleteRecipe = async (id: string) => {
+  await deleteRecipe(id)
+  toast({
+    title: "Cool!",
+    description: "Recipe successfully deleted",
+  })
+}
+
+export function RecipeCardPreview({
+  recipe,
+  isDeletable = false,
+}: RecipeCardProps) {
+  const onDeleteRecipe = async () => {
+    await handleDeleteRecipe(recipe.id)
+  }
   const isVegan = recipe?.vegan === "Yes"
   const isPaleo = recipe?.paleo === "Yes"
   const cookingTime = recipe?.cooking_time?.replaceAll(/[^0-9]/g, "")
@@ -31,6 +49,7 @@ export function RecipeCardPreview({ recipe }: RecipeCardProps) {
             <CardTitle className="line-clamp-1 text-lg">
               {recipe?.title}
             </CardTitle>
+            {isDeletable && <DeleteRecipeButton onClick={onDeleteRecipe} />}
             <CardDescription className="line-clamp-2">
               {recipe?.description}
             </CardDescription>

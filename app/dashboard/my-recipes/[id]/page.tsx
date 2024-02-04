@@ -3,8 +3,8 @@ import { notFound } from "next/navigation"
 import { auth } from "@clerk/nextjs"
 
 import { supabaseClient } from "@/lib/supabase-client"
-import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
-import { PageHeader, PageHeaderHeading } from "@/components/page-header"
+import { RecipeCard } from "@/components/recipe/recipe-card"
+import { PageHeader, PageHeaderHeading } from "@/components/layout/page-header"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chef-genie.app"),
@@ -41,7 +41,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
         <PageHeaderHeading>{recipe.title}</PageHeaderHeading>
       </PageHeader>
       <div className="mx-auto w-full max-w-3xl">
-        <GeneratedRecipeContent recipe={recipe} />
+        <RecipeCard recipe={recipe} />
       </div>
     </div>
   )

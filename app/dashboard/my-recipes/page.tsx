@@ -3,19 +3,19 @@ import { auth } from "@clerk/nextjs"
 
 import type { Tables } from "@/types/database.types"
 import { getRecipesByUserId } from "@/lib/supabase-queries"
-import { MyRecipeCardPreview } from "@/components/my-recipe-card-preview"
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from "@/components/page-header"
+} from "@/components/layout/page-header"
+import { RecipeCardPreview } from "@/components/recipe/recipe-card-preview"
 
 type Recipe = Tables<"recipes">
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chef-genie.app"),
   title: "My Recipes",
-  description: "Manage your recipes history.",
+  description: "Manage your recipes",
 }
 
 export default async function RecipePage() {
@@ -35,7 +35,7 @@ export default async function RecipePage() {
         <div className="grid gap-4 md:grid-cols-2">
           {recipes?.map((recipe) => (
             <div key={recipe.id}>
-              <MyRecipeCardPreview recipe={recipe as Recipe} />
+              <RecipeCardPreview recipe={recipe as Recipe} isDeletable />
             </div>
           ))}
         </div>

@@ -12,27 +12,20 @@ export async function POST(request: Request) {
   if (!userId) throw new Error("User ID not found")
 
   const body = await request.json()
-  const {
-    ingredients,
-    cooking_time,
-    people,
-    difficulty,
-    low_calori,
-    vegan,
-    paleo,
-  } = formSchema.parse(body)
+  const { ingredients } = formSchema.parse(body)
 
   const data = {
-    ingredients,
-    cooking_time,
-    people,
-    difficulty,
-    low_calori,
-    vegan,
-    paleo,
     user_id: userId,
     title: body.content.title,
+    description: body.content.description,
     content_json: body.content,
+    ingredients,
+    difficulty: body.content.difficulty,
+    cooking_time: body.content.cooking_time,
+    people: body.content.people,
+    low_calories: body.content.low_calori,
+    vegan: body.content.vegan,
+    paleo: body.content.paleo,
   }
   const recipe = await supabase.from("recipes").insert([data])
 

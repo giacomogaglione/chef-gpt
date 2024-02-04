@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils"
 import { ToastAction } from "@/components/ui/toast"
 import { toast } from "@/components/ui/use-toast"
 import { RecipeForm } from "@/components/form/recipe-form"
-import { GeneratedRecipeContent } from "@/components/generated-recipe-content"
-import { GeneratedRecipeLoading } from "@/components/generated-recipe-loading"
+import { RecipeCard } from "@/components/recipe/recipe-card"
+import { RecipeCardSkeleton } from "@/components/recipe/recipe-card-skeleton"
 
 export function GenerateRecipe() {
   const [isRecipeVisible, setIsRecipeVisible] = useState<boolean>(false)
@@ -98,12 +98,12 @@ export function GenerateRecipe() {
         >
           <div className="md:flex">
             {!isLoading && recipe && (
-              <GeneratedRecipeContent
+              <RecipeCard
                 recipe={recipe}
                 saveRecipe={onSaveRecipe}
               />
             )}
-            {isLoading && <GeneratedRecipeLoading />}
+            {isLoading && <RecipeCardSkeleton />}
           </div>
         </div>
       </div>
