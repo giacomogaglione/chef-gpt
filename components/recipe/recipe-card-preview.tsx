@@ -76,12 +76,12 @@ export function RecipeCardPreview({
     </>
   )
   return isPrivate ? (
+    <Card className="my-4 hover:bg-accent hover:shadow-lg">{cardContent}</Card>
+  ) : (
     <Link href={`/recipes/${recipe.id}`}>
       <Card className="my-4 hover:bg-accent hover:shadow-lg">
         {cardContent}
       </Card>
     </Link>
-  ) : (
-    <Card className="my-4 hover:bg-accent hover:shadow-lg">{cardContent}</Card>
   )
 }
