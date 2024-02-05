@@ -49,7 +49,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
               {showAdditionalFields && (
                 <RecipeFormLabel
                   stepIndex="1"
-                  labelIndex="What ingredients do you have?"
+                  labelIndex="What ingredients are in your arsenal?"
                 />
               )}
               <FormControl>
@@ -76,7 +76,7 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
                 <FormItem className="space-y-3">
                   <RecipeFormLabel
                     stepIndex="2"
-                    labelIndex="How much time do you have?"
+                    labelIndex="How much time can you spare?"
                   />
                   <FormControl>
                     <Slider
@@ -99,7 +99,10 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
               )}
             />
             <FormItem>
-              <RecipeFormLabel stepIndex="3" labelIndex="How many people?" />
+              <RecipeFormLabel
+                stepIndex="3"
+                labelIndex="How many hungry souls?"
+              />
               <RadioGroupFormField
                 form={form}
                 name="people"
@@ -109,14 +112,14 @@ export function RecipeForm({ onSubmit, isLoading }: RecipeFormProps) {
             <FormItem>
               <RecipeFormLabel
                 stepIndex="4"
-                labelIndex="Are you a good chef?"
+                labelIndex="Are you the master of the kitchen domain?"
               />
               <SelectFormField form={form} name="difficulty" />
             </FormItem>
             <FormItem>
               <RecipeFormLabel
                 stepIndex="5"
-                labelIndex="Do you have diet preference?"
+                labelIndex="Any specific preferences for your feast?"
               />
               <SwitchFormField
                 form={form}
