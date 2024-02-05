@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
   const { recipeId } = await request.json()
   const recipe = await supabase.from("recipes").delete().eq("id", recipeId)
-  revalidatePath("/account")
+  revalidatePath("/")
 
   return NextResponse.json(recipe)
 }
