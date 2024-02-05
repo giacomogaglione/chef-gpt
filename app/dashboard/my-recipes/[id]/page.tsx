@@ -3,7 +3,11 @@ import { notFound } from "next/navigation"
 import { auth } from "@clerk/nextjs"
 
 import { getRecipePrivate } from "@/lib/supabase-queries"
-import { PageHeader, PageHeaderHeading, PageHeaderDescription} from "@/components/layout/page-header"
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/layout/page-header"
 import { RecipeCard } from "@/components/recipe/recipe-card"
 
 export const metadata: Metadata = {

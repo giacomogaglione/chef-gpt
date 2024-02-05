@@ -45,6 +45,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.3",
     "recharts": "^2.10.4",
+    "sonner": "^1.4.0",
     "supabase": "^1.142.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",

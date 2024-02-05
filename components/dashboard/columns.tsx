@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ColumnDef } from "@tanstack/react-table"
 import { MoreHorizontal } from "lucide-react"
 
+import { deleteRecipe } from "@/lib/delete-recipe"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
@@ -13,7 +14,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { toast } from "@/components/ui/use-toast"
 import { DataTableColumnHeader } from "@/components/dashboard/data-table-column-header"
+
+const handleDeleteRecipe = async (id: string) => {
+  await deleteRecipe(id)
+  toast({
+    title: "Cool!",
+    description: "Recipe successfully deleted",
+  })
+}
 
 export interface RecipeTable {
   id: string
@@ -83,10 +93,15 @@ export const columns: ColumnDef<RecipeTable>[] = [
             <DropdownMenuItem>
               <Link href={`/dashboard/my-recipes/${recipe.id}`}>View</Link>
             </DropdownMenuItem>
-
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Button variant="destructive" size="xs">
+              <Button
+                variant="destructive"
+                size="xs"
+                onClick={async () => {
+                  await handleDeleteRecipe(recipe.id)
+                }}
+              >
                 Delete
               </Button>
             </DropdownMenuItem>

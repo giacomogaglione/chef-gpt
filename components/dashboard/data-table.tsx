@@ -22,7 +22,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-
 import { DataTablePagination } from "@/components/dashboard/data-table-pagination"
 import { DataTableToolbar } from "@/components/dashboard/data-table-toolbar"
 
