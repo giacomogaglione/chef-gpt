@@ -1,6 +1,7 @@
 "use client"
 
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { toast } from "sonner"
 
 import { Recipe } from "@/types/types"
 import { saveRecipe } from "@/lib/actions"
@@ -12,7 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { toast } from "@/components/ui/use-toast"
 import { macroInfo, recipeInfo } from "@/components/recipe/recipe-constants"
 import { SaveRecipeButton } from "@/components/recipe/save-recipe-button"
 
@@ -27,19 +27,11 @@ export function RecipeCard({ recipe }: GeneratedRecipeContentProps) {
   }))
 
   const onSaveRecipe = async () => {
-    try {
-      await saveRecipe(recipe)
-      toast({
-        title: "Cool!",
-        description: "Recipe successfully saved",
-      })
-    } catch {
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Account needed.",
-        description: "Sign-in to save your recipe",
-      })
-    }
+    toast.promise(saveRecipe(recipe), {
+      loading: "Saving...",
+      success: () => "Cool! Recipe saved successfully.",
+      error: "Oh No! Sign-In to save recipes!",
+    })
   }
 
   return (

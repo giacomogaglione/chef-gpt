@@ -2,12 +2,12 @@
 
 import React, { useCallback, useEffect, useState } from "react"
 import { useCompletion } from "ai/react"
+import { toast } from "sonner"
 
 import { defaultValues, Recipe, type FormData } from "@/types/types"
 import { saveGeneration } from "@/lib/actions"
 import { generatePrompt } from "@/lib/generate-prompt"
 import { cn } from "@/lib/utils"
-import { toast } from "@/components/ui/use-toast"
 import { RecipeForm } from "@/components/form/recipe-form"
 import { RecipeCard } from "@/components/recipe/recipe-card"
 import { RecipeCardSkeleton } from "@/components/recipe/recipe-card-skeleton"
@@ -41,12 +41,7 @@ export function GenerateRecipe() {
         setRecipe(result)
       } catch (error) {
         console.error("Error parsing JSON:", error)
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Failed to generate recipe. Try again.",
-          description:
-            "Failed to generate recipe. Please check your input and try again.",
-        })
+        toast.error("Uh oh! Failed to generate recipe. Try again.")
       }
     },
     [complete]

@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ColumnDef } from "@tanstack/react-table"
 import { MoreHorizontal } from "lucide-react"
+import { toast } from "sonner"
 
 import { deleteRecipe } from "@/lib/actions"
 import { Badge } from "@/components/ui/badge"
@@ -14,14 +15,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { toast } from "@/components/ui/use-toast"
 import { DataTableColumnHeader } from "@/components/dashboard/data-table-column-header"
 
 const handleDeleteRecipe = async (id: string) => {
-  await deleteRecipe(id)
-  toast({
-    title: "Cool!",
-    description: "Recipe successfully deleted",
+  toast.promise(deleteRecipe(id), {
+    loading: "Deleting...",
+    success: () => "Recipe deleted successfully.",
   })
 }
 

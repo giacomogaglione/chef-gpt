@@ -4,11 +4,11 @@ import { Metadata, Viewport } from "next"
 import { ClerkProvider } from "@clerk/nextjs"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Toaster } from "sonner"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -92,7 +92,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             <SpeedInsights />
             <Analytics />
           </ThemeProvider>
-          <Toaster />
+          <Toaster richColors />
         </body>
       </html>
     </ClerkProvider>
