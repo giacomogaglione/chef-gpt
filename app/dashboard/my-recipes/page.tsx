@@ -47,7 +47,7 @@ export default async function RecipePage() {
   const data = await getRecipesPrivate()
 
   return (
-    <div>
+    <div className="container grid">
       <PageHeader>
         <PageHeaderHeading>Your Culinary Creations</PageHeaderHeading>
         <PageHeaderDescription>
@@ -55,19 +55,13 @@ export default async function RecipePage() {
           here!
         </PageHeaderDescription>
       </PageHeader>
-      {data && (
-        <div className="m-4">
-          <DataTable columns={columns} data={data} />
-        </div>
-      )}
-      <div className="m-4">
-        <div className="grid gap-4 md:grid-cols-3">
-          {recipes?.map((recipe) => (
-            <div key={recipe.id}>
-              <RecipeCardPreview recipe={recipe as Recipe} isPrivate />
-            </div>
-          ))}
-        </div>
+      {data && <DataTable columns={columns} data={data} />}
+      <div className="grid gap-4 md:grid-cols-3">
+        {recipes?.map((recipe) => (
+          <div key={recipe.id}>
+            <RecipeCardPreview recipe={recipe as Recipe} isPrivate />
+          </div>
+        ))}
       </div>
     </div>
   )

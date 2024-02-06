@@ -4,11 +4,9 @@ import React, { useCallback, useEffect, useState } from "react"
 import { useCompletion } from "ai/react"
 
 import { defaultValues, Recipe, type FormData } from "@/types/types"
+import { saveGeneration } from "@/lib/actions"
 import { generatePrompt } from "@/lib/generate-prompt"
-import { saveGeneration } from "@/lib/save-generation"
-import { saveRecipe } from "@/lib/save-recipe"
 import { cn } from "@/lib/utils"
-import { ToastAction } from "@/components/ui/toast"
 import { toast } from "@/components/ui/use-toast"
 import { RecipeForm } from "@/components/form/recipe-form"
 import { RecipeCard } from "@/components/recipe/recipe-card"
@@ -54,28 +52,6 @@ export function GenerateRecipe() {
     [complete]
   )
 
-  const handleSaveRecipe = async () => {
-    const success = await saveRecipe(formValues, recipe)
-
-    if (success) {
-      toast({
-        title: "Cool!",
-        description: "Recipe successfully saved",
-      })
-    } else {
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Account needed.",
-        description: "Sign-in to save your recipe",
-        action: <ToastAction altText="Sign-in">Sign-In</ToastAction>,
-      })
-    }
-  }
-
-  const onSaveRecipe = async () => {
-    await handleSaveRecipe()
-  }
-
   return (
     <div className="pb-24">
       <div
@@ -97,9 +73,7 @@ export function GenerateRecipe() {
           })}
         >
           <div className="md:flex">
-            {!isLoading && recipe && (
-              <RecipeCard recipe={recipe} saveRecipe={onSaveRecipe} />
-            )}
+            {!isLoading && recipe && <RecipeCard recipe={recipe} />}
             {isLoading && <RecipeCardSkeleton />}
           </div>
         </div>

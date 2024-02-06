@@ -3,6 +3,7 @@
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
 
 import { Recipe } from "@/types/types"
+import { saveRecipe } from "@/lib/actions"
 import {
   Card,
   CardContent,
@@ -11,22 +12,35 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { toast } from "@/components/ui/use-toast"
 import { macroInfo, recipeInfo } from "@/components/recipe/recipe-constants"
 import { SaveRecipeButton } from "@/components/recipe/save-recipe-button"
 
 interface GeneratedRecipeContentProps {
   recipe: Recipe
-  saveRecipe?: () => void
 }
 
-export function RecipeCard({
-  recipe,
-  saveRecipe,
-}: GeneratedRecipeContentProps) {
+export function RecipeCard({ recipe }: GeneratedRecipeContentProps) {
   const macroChartData = macroInfo.map((macro) => ({
     label: macro.label,
     value: recipe?.macros[macro.value],
   }))
+
+  const onSaveRecipe = async () => {
+    try {
+      await saveRecipe(recipe)
+      toast({
+        title: "Cool!",
+        description: "Recipe successfully saved",
+      })
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Account needed.",
+        description: "Sign-in to save your recipe",
+      })
+    }
+  }
 
   return (
     <Card className="w-full">
@@ -116,7 +130,7 @@ export function RecipeCard({
         </div>
       </CardContent>
       <CardFooter>
-        {saveRecipe && <SaveRecipeButton onClick={saveRecipe} />}
+        <SaveRecipeButton onClick={onSaveRecipe} />
       </CardFooter>
     </Card>
   )

@@ -4,7 +4,7 @@ import Link from "next/link"
 import { ColumnDef } from "@tanstack/react-table"
 import { MoreHorizontal } from "lucide-react"
 
-import { deleteRecipe } from "@/lib/delete-recipe"
+import { deleteRecipe } from "@/lib/actions"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
