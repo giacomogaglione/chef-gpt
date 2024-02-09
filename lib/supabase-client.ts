@@ -1,12 +1,10 @@
 import { createClient } from "@supabase/supabase-js"
 
-import type { Database } from "@/types/database.types"
-
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY
 
 export const supabaseClient = async (supabaseAccessToken: string) => {
-  const supabase = createClient<Database>(
+  const supabase = createClient(
     supabaseUrl as string,
     supabaseKey as string,
     {
@@ -18,7 +16,7 @@ export const supabaseClient = async (supabaseAccessToken: string) => {
 }
 
 export const supabaseClientPublic = async () => {
-  const supabase = createClient<Database>(
+  const supabase = createClient(
     supabaseUrl as string,
     supabaseKey as string
   )
