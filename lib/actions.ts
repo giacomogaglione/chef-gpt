@@ -5,6 +5,12 @@ import { auth } from "@clerk/nextjs"
 
 import { supabaseClient, supabaseClientPublic } from "@/lib/supabase-client"
 
+async function getSupabaseClient() {
+  const { getToken } = auth()
+  const supabaseAccessToken = await getToken({ template: "chef-genie" })
+  return await supabaseClient(supabaseAccessToken as string)
+}
+
 export async function saveGeneration(generatedRecipe) {
   const supabase = await supabaseClientPublic()
 
@@ -30,9 +36,8 @@ export async function saveGeneration(generatedRecipe) {
 }
 
 export async function saveRecipe(generatedRecipe) {
-  const { getToken, userId } = auth()
-  const supabaseAccessToken = await getToken({ template: "chef-genie" })
-  const supabase = await supabaseClient(supabaseAccessToken as string)
+  const supabase = await getSupabaseClient()
+  const userId = auth().userId
 
   if (!userId) throw new Error("User ID not found")
 
@@ -61,9 +66,8 @@ export async function saveRecipe(generatedRecipe) {
 }
 
 export async function deleteRecipe(id: string) {
-  const { getToken, userId } = auth()
-  const supabaseAccessToken = await getToken({ template: "chef-genie" })
-  const supabase = await supabaseClient(supabaseAccessToken as string)
+  const supabase = await getSupabaseClient()
+  const userId = auth().userId
 
   if (!userId) throw new Error("User ID not found")
 
