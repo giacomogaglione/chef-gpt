@@ -14,7 +14,7 @@ export function MainNav({ items }: MainNavProps) {
     <div className="flex gap-6 md:gap-10">
       <Link
         href="/"
-        aria-label="Chef Genie Homepage"
+        aria-label="Crash-GPT Homepage"
         className="items-center space-x-2 md:flex"
       >
         <Icons.logo className="size-5 md:size-6" />

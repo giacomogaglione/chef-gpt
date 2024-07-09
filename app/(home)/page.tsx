@@ -1,12 +1,10 @@
-import { Suspense } from "react"
-
-import { GenerateRecipe } from "@/components/generate-recipe"
+import { RecipeForm } from "@/components/form/recipe-form"
+import AdsSection from "@/components/homepage/ads-section"
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/layout/page-header"
-import { RecentRecipes } from "@/components/recent-recipes"
 import { RecipesCounter } from "@/components/recipes-counter"
 
 export default async function IndexPage() {
@@ -15,19 +13,19 @@ export default async function IndexPage() {
       <PageHeader>
         <RecipesCounter />
         <PageHeaderHeading>
-          Say goodbye to mealtime indecision with
-          <span className="bg-gradient-to-r from-violet-500 to-teal-300 bg-clip-text text-transparent">
-            {" Chef Genie"}
-          </span>
+          Don&apos;t Waste Your Time! Florida Residents Can Get{" "}
+          <span className="text-red-600">5X MORE CASH</span>
+          !!!
         </PageHeaderHeading>
-        <PageHeaderDescription>
-          Free. Open Source. Recipe generator powered by OpenAI and ChatGPT.
+        <PageHeaderDescription className="max-w-lg">
+          Use Crash-GPT for free. Get started by telling the Artificial
+          Intelligence (AI) model a little about what happened.
         </PageHeaderDescription>
       </PageHeader>
-      <GenerateRecipe />
-      <Suspense>
-        <RecentRecipes />
-      </Suspense>
+      <div className="mx-auto mb-8 max-w-2xl space-y-6 md:space-x-6 md:space-y-0">
+        <RecipeForm />
+      </div>
+      <AdsSection />
     </div>
   )
 }

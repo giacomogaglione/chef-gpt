@@ -1,5 +1,6 @@
 import { currentUser } from "@clerk/nextjs"
 
+import Footer from "@/components/general/footer"
 import { SiteFooter } from "@/components/layout/site-footer"
 import { SiteHeader } from "@/components/layout/site-header"
 
@@ -14,7 +15,7 @@ export default async function HomeLayout({ children }: HomeLayoutProps) {
     <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col items-center gap-2">
       <SiteHeader user={user} />
       <main className="flex-1">{children}</main>
-      <SiteFooter />
+      <Footer />
     </div>
   )
 }

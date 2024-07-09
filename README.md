@@ -1,4 +1,4 @@
-# [Chef Genie](https://chef-genie.app)
+# Crash-GPT
 
 An open source recipe generator powered by OpenAi and ChatGPT.
 
