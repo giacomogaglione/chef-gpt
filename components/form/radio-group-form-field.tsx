@@ -71,7 +71,7 @@ export function RadioGroupFormField({
             <RadioGroup
               onValueChange={field.onChange}
               defaultValue={field.value}
-              className="grid grid-cols-3"
+              className="grid lg:grid-cols-3"
               aria-label="people-recipe"
             >
               {options.map((option) => (

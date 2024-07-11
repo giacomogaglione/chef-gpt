@@ -148,12 +148,12 @@ export function RecipeForm() {
 
           <div>
             <RecipeFormLabel stepIndex="4" labelIndex="Personal Details" />
-            <div className="mt-2 flex items-center justify-between">
+            <div className="mt-2 flex flex-col items-center justify-between gap-2 lg:flex-row">
               <FormField
                 name="name"
                 control={form.control}
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="w-full">
                     <Input {...field} placeholder="Name" />
                     <FormMessage className="absolute" />
                   </FormItem>
@@ -163,7 +163,7 @@ export function RecipeForm() {
                 name="email"
                 control={form.control}
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="w-full">
                     <Input {...field} placeholder="Email Address" />
                     <FormMessage className="absolute" />
                   </FormItem>
@@ -173,7 +173,7 @@ export function RecipeForm() {
                 name="phone_number"
                 control={form.control}
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="w-full">
                     <Input
                       {...field}
                       placeholder="Phone Number"

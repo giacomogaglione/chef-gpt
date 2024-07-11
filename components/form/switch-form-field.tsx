@@ -22,7 +22,7 @@ export function SwitchFormField({ form, name, label }: SwitchFormFieldProps) {
       control={form.control}
       name={name}
       render={({ field }) => (
-        <FormItem className="my-auto flex flex-row items-center justify-between space-y-0 rounded-lg border px-4 py-2">
+        <FormItem className="my-auto flex flex-row items-center justify-between gap-4 space-y-0 rounded-lg border px-4 py-2">
           <FormLabel className="font-medium">{label}</FormLabel>
           <FormControl>
             <Switch

@@ -40,11 +40,11 @@ export default function AdsSection() {
       <div className="mb-12 flex items-center justify-center">
         <div className="mx-auto max-w-screen-sm text-center">
           <Image
-            src={"/heading.png"}
+            src={"/heading.svg"}
             alt="Heading"
             width={300}
             height={100}
-            className="mx-auto w-72 h-10"
+            className="mx-auto mb-4 size-auto"
           />
           <h4 className="text-2xl font-bold">
             WE&apos;VE DRIVEN OVER $12,129,129.93 IN additional payouts OUR
