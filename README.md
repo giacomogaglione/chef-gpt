@@ -1,4 +1,4 @@
-# [Chef Genie](https://chef-genie.app)
+# [Chef Genie](https://chef-genie.vercel.app)
 
 An open source recipe generator powered by OpenAi and ChatGPT.
 
